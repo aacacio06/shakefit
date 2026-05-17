@@ -1,0 +1,35 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [],
+  "dev_command": "pnpm run dev",
+  "env_vars": {},
+  "experiments": null,
+  "git_remote": {
+    "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663225383751/cVFNkp2v7sXWw8AJgQ6ojp",
+    "access_key_id": "ASIAZV3A2ECZGNUAOF62",
+    "secret_access_key": "F8kzZbGvOu/IYXTkGXyLdmMjApqtsG6npBcw4sTG",
+    "session_token": "IQoJb3JpZ2luX2VjENP//////////wEaCXVzLWVhc3QtMSJHMEUCIQDsjWVxbeiNv9t+x7XZbi2W82y3H532KGiiimsr5t3J8wIgTz4JwvxZre6OtUjO0jeejvF+mHZlL0wKpVChAnshJHkq/wMInP//////////ARAEGgw2NjUzODYwOTg4NjYiDBfBEI0icZGE8WX08irTA5CRWC2CQ5mTPPRopvPJLpf/KWBoxBWb+Eq1A2UyA1H6m3OFL+nkIDL7vVae0W6tQUa3hTJMtudE5mUdZWy2H1vijGnTscc4/oRQarXt+4brjbkFrM+Rffq7v6O1CsLHTn5zs6Bpozk4MJ6TJpoAzqhG4PUbwHx+RUdinDQEMlTPyVfmhSFwciB+oVjjXwOZbKd2YQPVzJi2x/QnlsjRkZUd/3nRcOufmGiZl9bJCemlcMHr64CRHyZnWsbNyDAzPiXCm5ZACwE82pbs4Op037UvvsMzSfBQMpodrqbAjmMwkEAGDyFMBej+4uJ1aHKb7/6IxhYgk5Sip4HZLIYcQ2b9UxnhVg7BHAH3CDkJmIS+n8R1iVKBHE0xjueOXEWJyCwvmeGtsbZg+qq5QvEUgLKDpkmdN3osmYLgz0o1DBMxHGtcr6bnEUbJgHaiXNp+CAD1h/gJq8jTxEyQFmbOM+X/7u3ZqCcTP0TKz+BayY1vLJfSyRR6psk10kfgXhim+4GH0adVbJwyXcYoFZnWaN8ouILPfg1/1O0YDJQiU4YNzP6pZAJyWmwHxyRnKzWpd8K5Q0dvOy9lukNQxzgmoQVQnSJgwZvf+ZQGSHlep93lYOMLMMXNpNAGOp0BYtV6e/2Hb1BLb1wa+6kGwuhcm79+Dwq9jKSAAwxp9zp8G8yj/JQhN4JxvWCv/Qzkk7TJ3EonNrN9zCk/r1CAwnESJetVr5O6pXt6aDJ7dVKoZwrUo6bF5mp0whymUF+UMOOrEGxNL950uq5qGP6F4vMvE2fG5hqeLN1tFJXh65NQM70Sn3bWOXKDxN3OlnWcEUzZE+TwwkrvBb3KAA==",
+    "expiration": "2026-05-17T14:24:05.000Z"
+  },
+  "name": "shakefit-clone",
+  "path": "/home/ubuntu/shakefit-clone",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "3MCMziNXUTNYm7qKsMzehB",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "oEUJGXYYgFKxaBgjnVREa7",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "Adrian Martins",
+    "OWNER_OPEN_ID": "3DCmLoKUuwR8WBCjEiJr7Q",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "9375e525-6f83-4fa8-bb14-32c79d85eb27",
+    "VITE_APP_ID": "cVFNkp2v7sXWw8AJgQ6ojp",
+    "VITE_APP_LOGO": "",
+    "VITE_APP_TITLE": "Shake Fit Gourmet - Clone",
+    "VITE_FRONTEND_FORGE_API_KEY": "TbeuPUKTKiwAT6GFfS9QwP",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-static",
+  "test_command": "pnpm test"
+}
