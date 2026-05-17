@@ -20,7 +20,7 @@ export default function FeaturedSection() {
 
         {/* Grid de Produtos */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {topProducts.filter(Boolean).map((product) => (
+          {topProducts.filter((p): p is NonNullable<typeof p> => p !== undefined).map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
