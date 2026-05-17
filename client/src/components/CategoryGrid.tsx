@@ -35,11 +35,11 @@ export default function CategoryGrid() {
               className="bg-gray-50 border-2 border-gray-200 rounded-lg p-8 hover:border-black hover:shadow-lg transition-all duration-300 cursor-pointer group overflow-hidden"
             >
               {categoryImages[category] ? (
-                <div className="w-full h-48 mb-4 rounded-lg overflow-hidden">
+                <div className="w-full h-48 mb-4 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
                   <img
                     src={categoryImages[category]}
                     alt={category}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    className={category === "Combos" ? "h-full object-contain group-hover:scale-110 transition-transform duration-300" : "w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"}
                   />
                 </div>
               ) : (
