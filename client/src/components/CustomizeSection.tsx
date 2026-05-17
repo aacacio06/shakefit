@@ -56,22 +56,9 @@ export default function CustomizeSection() {
               Sabor à escolha + Waffle Quentinho incluso
             </p>
 
-            <div className="flex items-center justify-between mb-6">
-              <span className="text-black font-bold text-2xl">R$ 69,00</span>
-            </div>
-
             <a href="https://wa.me/5569992058071" target="_blank" rel="noopener noreferrer" className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition-colors font-bold mb-4 block text-center">
               Começar Personalização
             </a>
-
-            <div className="flex items-center justify-between text-gray-600 text-sm">
-              <span>Total estimado</span>
-              <span className="text-black font-bold text-lg">R$ 69,00</span>
-            </div>
-
-            <button className="w-full mt-4 bg-gray-200 text-gray-700 py-2 rounded-lg hover:bg-gray-300 transition-colors font-semibold">
-              Próximo
-            </button>
           </div>
         </div>
       </div>
