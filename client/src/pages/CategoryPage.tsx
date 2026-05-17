@@ -10,6 +10,7 @@ import { useState, useMemo } from "react";
 export default function CategoryPage() {
   const { category } = useParams<{ category: string }>();
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null);
 
   const decodedCategory = category ? decodeURIComponent(category) : "";
   const filteredProducts = products.filter((p) => p.category === decodedCategory);
@@ -28,6 +29,11 @@ export default function CategoryPage() {
   }, [filteredProducts]);
 
   const subcategories = Object.entries(groupedProducts);
+  const subcategoryNames = subcategories.map(([name]) => name);
+
+  // Se nenhuma subcategoria foi selecionada, seleciona a primeira
+  const activeSubcategory = selectedSubcategory || subcategoryNames[0];
+  const displayedProducts = groupedProducts[activeSubcategory] || [];
 
   return (
     <div className="min-h-screen bg-white">
@@ -54,18 +60,30 @@ export default function CategoryPage() {
             </p>
           </div>
 
-          {/* Produtos por Subcategoria em Duas Colunas */}
-          {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {subcategories.map(([subcategory, subProducts]) => (
-                <div key={subcategory}>
-                  <h2 className="text-2xl font-bold text-black mb-6">{subcategory}</h2>
-                  <div className="grid grid-cols-1 gap-6">
-                    {subProducts.map((product) => (
-                      <ProductCard key={product.id} product={product} />
-                    ))}
-                  </div>
-                </div>
+          {/* Filtros de Subcategoria */}
+          {subcategoryNames.length > 1 && (
+            <div className="mb-8 flex flex-wrap gap-3">
+              {subcategoryNames.map((subcategory) => (
+                <button
+                  key={subcategory}
+                  onClick={() => setSelectedSubcategory(subcategory)}
+                  className={`px-6 py-2 rounded-lg font-semibold transition-all duration-300 ${
+                    activeSubcategory === subcategory
+                      ? "bg-black text-white shadow-lg"
+                      : "bg-gray-200 text-black hover:bg-gray-300"
+                  }`}
+                >
+                  {subcategory}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Produtos da Subcategoria Selecionada */}
+          {displayedProducts.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+              {displayedProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
               ))}
             </div>
           ) : (
