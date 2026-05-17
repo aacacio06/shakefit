@@ -22,10 +22,9 @@ export default function CategoryPage() {
       {/* Botão de Voltar Fixo */}
       <button
         onClick={() => window.history.back()}
-        className="fixed bottom-8 right-8 z-40 flex items-center gap-2 bg-black text-white px-4 py-3 rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold"
+        className="fixed top-24 left-8 z-40 flex items-center justify-center bg-black text-white p-3 rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl"
       >
-        <ArrowLeft size={20} />
-        Voltar
+        <ArrowLeft size={24} />
       </button>
 
       <main className="py-16 sm:py-24">
