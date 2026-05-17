@@ -4,12 +4,12 @@ import { categories } from "@/data/products";
 export default function CategoryGrid() {
   const [location, setLocation] = useLocation();
 
-  const categoryIcons: Record<string, string> = {
-    "Shakes Proteicos": "🥤",
-    "Bebidas Funcionais": "🧃",
-    "Salgados Proteicos": "🥐",
-    "Sobremesas Proteicas": "🍰",
-    "Combos": "🎁",
+  const categoryImages: Record<string, string> = {
+    "Shakes Proteicos": "/manus-storage/WhatsAppImage2026-05-16at15.25.03(4)_88c33fdb.jpeg",
+    "Bebidas Funcionais": "",
+    "Salgados Proteicos": "",
+    "Sobremesas Proteicas": "",
+    "Combos": "",
   };
 
   const handleCategoryClick = (category: string) => {
@@ -32,11 +32,21 @@ export default function CategoryGrid() {
             <button
               key={category}
               onClick={() => handleCategoryClick(category)}
-              className="bg-gray-50 border-2 border-gray-200 rounded-lg p-8 hover:border-black hover:shadow-lg transition-all duration-300 cursor-pointer group"
+              className="bg-gray-50 border-2 border-gray-200 rounded-lg p-8 hover:border-black hover:shadow-lg transition-all duration-300 cursor-pointer group overflow-hidden"
             >
-              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">
-                {categoryIcons[category] || "📦"}
-              </div>
+              {categoryImages[category] ? (
+                <div className="w-full h-48 mb-4 rounded-lg overflow-hidden">
+                  <img
+                    src={categoryImages[category]}
+                    alt={category}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+              ) : (
+                <div className="w-full h-48 mb-4 rounded-lg bg-gray-200 flex items-center justify-center">
+                  <span className="text-gray-400 text-sm">Imagem em breve</span>
+                </div>
+              )}
               <h3 className="text-xl font-bold text-black group-hover:text-black transition-colors">
                 {category}
               </h3>
