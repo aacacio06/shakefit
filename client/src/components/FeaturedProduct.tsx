@@ -22,7 +22,7 @@ export default function FeaturedProduct({
   category,
 }: FeaturedProductProps) {
   const [, setLocation] = useLocation();
-  const { addToCart } = useCart();
+  const { addItem } = useCart();
 
   const handleNavigateToCategory = () => {
     setLocation(`/cardapio/${encodeURIComponent(category)}`);
@@ -30,12 +30,16 @@ export default function FeaturedProduct({
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
-    addToCart({
-      id,
-      name,
-      price,
+    addItem({
+      product: {
+        id,
+        name,
+        price,
+        image,
+        category,
+        description: "",
+      } as any,
       quantity: 1,
-      image,
     });
   };
 
