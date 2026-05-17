@@ -40,27 +40,7 @@ export default function CustomizeSection() {
           </div>
         </div>
 
-        {/* Produto Card */}
-        <div className="max-w-2xl mx-auto bg-white rounded-lg overflow-hidden border border-gray-200">
-          <div className="h-64 bg-gray-800 flex items-center justify-center">
-            <img
-              src="/manus-storage/WhatsAppImage2026-05-16at15.24.59(1)_d1e0e933.jpeg"
-              alt="Shake Tópissimo"
-              className="w-full h-full object-cover"
-            />
-          </div>
 
-          <div className="p-6">
-            <h3 className="text-black font-bold text-2xl mb-2">Shake Tópissimo</h3>
-            <p className="text-gray-600 mb-6">
-              Sabor à escolha + Waffle Quentinho incluso
-            </p>
-
-            <a href="https://wa.me/5569992058071" target="_blank" rel="noopener noreferrer" className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition-colors font-bold mb-4 block text-center">
-              Começar Personalização
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   );

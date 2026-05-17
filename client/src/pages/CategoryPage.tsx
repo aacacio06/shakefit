@@ -5,7 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CartModal from "@/components/CartModal";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 export default function CategoryPage() {
   const { category } = useParams<{ category: string }>();
@@ -13,6 +13,19 @@ export default function CategoryPage() {
 
   const decodedCategory = category ? decodeURIComponent(category) : "";
   const filteredProducts = products.filter((p) => p.category === decodedCategory);
+
+  // Agrupar produtos por subcategoria
+  const groupedProducts = useMemo(() => {
+    const groups: { [key: string]: typeof products } = {};
+    filteredProducts.forEach((product) => {
+      const key = product.subcategory || "Outros";
+      if (!groups[key]) {
+        groups[key] = [];
+      }
+      groups[key].push(product);
+    });
+    return groups;
+  }, [filteredProducts]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -39,11 +52,18 @@ export default function CategoryPage() {
             </p>
           </div>
 
-          {/* Grid de Produtos */}
+          {/* Produtos por Subcategoria */}
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
+            <div className="space-y-12">
+              {Object.entries(groupedProducts).map(([subcategory, subProducts]) => (
+                <div key={subcategory}>
+                  <h2 className="text-2xl font-bold text-black mb-6">{subcategory}</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {subProducts.map((product) => (
+                      <ProductCard key={product.id} product={product} />
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           ) : (
