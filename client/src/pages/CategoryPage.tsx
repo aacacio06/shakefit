@@ -43,7 +43,7 @@ export default function CategoryPage() {
       {/* Botão de Voltar Fixo */}
       <button
         onClick={() => window.history.back()}
-        className="fixed top-6 left-6 z-40 flex items-center justify-center bg-black text-white p-2 rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl"
+        className="fixed top-4 left-4 z-40 flex items-center justify-center bg-black text-white p-2 rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl"
       >
         <ArrowLeft size={18} />
       </button>
