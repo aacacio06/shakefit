@@ -39,7 +39,7 @@ export default function CategoryGrid() {
                   <img
                     src={categoryImages[category]}
                     alt={category}
-                    className={category === "Combos" ? "h-full object-contain group-hover:scale-110 transition-transform duration-300" : "w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
               ) : (
