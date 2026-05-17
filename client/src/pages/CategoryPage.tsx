@@ -1,4 +1,5 @@
-import { useParams } from "wouter";
+import { useParams, useRouter } from "wouter";
+import { ArrowLeft } from "lucide-react";
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 import Header from "@/components/Header";
@@ -9,6 +10,7 @@ import { useState } from "react";
 export default function CategoryPage() {
   const { category } = useParams<{ category: string }>();
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const router = useRouter();
 
   const decodedCategory = category ? decodeURIComponent(category) : "";
   const filteredProducts = products.filter((p) => p.category === decodedCategory);
@@ -20,8 +22,15 @@ export default function CategoryPage() {
 
       <main className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Título da Categoria */}
+          {/* Botão de Voltar e Título da Categoria */}
           <div className="mb-12">
+            <button
+              onClick={() => router.back()}
+              className="flex items-center gap-2 text-black hover:text-gray-700 transition-colors mb-6 font-semibold"
+            >
+              <ArrowLeft size={20} />
+              Voltar
+            </button>
             <h1 className="text-4xl sm:text-5xl font-bold text-black mb-4">
               {decodedCategory}
             </h1>
