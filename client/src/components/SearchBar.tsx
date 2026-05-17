@@ -9,6 +9,7 @@ interface SearchResult {
   category: string;
   price: number;
   image?: string;
+  imagePosition?: string;
 }
 
 export default function SearchBar() {
@@ -83,6 +84,7 @@ export default function SearchBar() {
                     src={result.image}
                     alt={result.name}
                     className="w-12 h-12 object-cover rounded"
+                    style={{ objectPosition: result.imagePosition || 'center 35%' }}
                   />
                 )}
                 <div className="flex-1">
