@@ -9,7 +9,7 @@ export default function CategoryGrid() {
     "Bebidas Funcionais": "",
     "Salgados Proteicos": "",
     "Sobremesas Proteicas": "",
-    "Combos": "/manus-storage/WhatsAppImage2026-05-16at15.25.03(5)_ecca03d3.jpeg",
+    "Combos": "/manus-storage/WhatsAppImage2026-05-16at15.25.03(6)_88cc8869.jpeg",
   };
 
   const handleCategoryClick = (category: string) => {
