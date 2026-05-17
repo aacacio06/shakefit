@@ -45,9 +45,13 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold mb-4 uppercase text-sm">Contato</h4>
             <div className="space-y-2 text-gray-400 text-sm">
-              <p>Centro, Cidade - Estado</p>
-              <p>Seg-Sáb: 8h às 20h</p>
-              <p className="font-semibold text-white">(00) 00000-0000</p>
+              <p>Restaurante de comida saudável</p>
+              <p className="font-semibold text-white mt-2">Horário de Atendimento:</p>
+              <p>Seg-Sex: 7:00 às 19:30</p>
+              <p>Sáb: 7:00 às 11:30</p>
+              <p>Dom: 7:00 às 10:30</p>
+              <p className="font-semibold text-white mt-2">WhatsApp:</p>
+              <a href="https://wa.me/5569992058071" className="text-yellow-400 hover:text-yellow-300 transition-colors">+55 69 99920-5807</a>
             </div>
           </div>
 
@@ -58,16 +62,20 @@ export default function Footer() {
               Siga-nos e fique por dentro das novidades!
             </p>
             <div className="flex gap-4">
-              {socialLinks.map(({ icon: Icon, label }) => (
-                <a
-                  key={label}
-                  href="#"
-                  className="text-gray-400 hover:text-yellow-400 transition-colors"
-                  aria-label={label}
-                >
-                  <Icon size={20} />
-                </a>
-              ))}
+              <a
+                href="https://www.instagram.com/shakefitopo"
+                className="text-gray-400 hover:text-yellow-400 transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram size={20} />
+              </a>
+              <a
+                href="https://wa.me/5569992058071"
+                className="text-gray-400 hover:text-yellow-400 transition-colors"
+                aria-label="WhatsApp"
+              >
+                <Facebook size={20} />
+              </a>
             </div>
           </div>
         </div>

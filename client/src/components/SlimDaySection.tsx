@@ -54,9 +54,9 @@ export default function SlimDaySection() {
               <span className="text-yellow-400 font-bold text-4xl">R$ 159,00</span>
             </div>
 
-            <button className="w-full bg-yellow-400 text-black py-3 rounded-lg hover:bg-yellow-500 transition-colors font-bold mb-6 text-lg">
+            <a href="https://wa.me/5569992058071" target="_blank" rel="noopener noreferrer" className="w-full bg-yellow-400 text-black py-3 rounded-lg hover:bg-yellow-500 transition-colors font-bold mb-6 text-lg block text-center">
               Quero meu Slim Day
-            </button>
+            </a>
 
             <div className="text-center">
               <p className="text-gray-400 text-sm mb-2">Resultados em</p>

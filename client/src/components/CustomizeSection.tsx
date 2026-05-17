@@ -60,9 +60,9 @@ export default function CustomizeSection() {
               <span className="text-yellow-400 font-bold text-2xl">R$ 69,00</span>
             </div>
 
-            <button className="w-full bg-yellow-400 text-black py-3 rounded-lg hover:bg-yellow-500 transition-colors font-bold mb-4">
+            <a href="https://wa.me/5569992058071" target="_blank" rel="noopener noreferrer" className="w-full bg-yellow-400 text-black py-3 rounded-lg hover:bg-yellow-500 transition-colors font-bold mb-4 block text-center">
               Começar Personalização
-            </button>
+            </a>
 
             <div className="flex items-center justify-between text-gray-400 text-sm">
               <span>Total estimado</span>

@@ -31,13 +31,13 @@ export default function HeroSection() {
 
         {/* Botões */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-900 transition-colors font-semibold flex items-center justify-center gap-2 border border-gray-700">
+          <a href="https://wa.me/5569992058071" target="_blank" rel="noopener noreferrer" className="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-900 transition-colors font-semibold flex items-center justify-center gap-2 border border-gray-700">
             Peça Agora e Transforme seu Dia
             <ArrowRight size={20} />
-          </button>
-          <button className="bg-transparent text-white px-8 py-3 rounded-full hover:bg-white/10 transition-colors font-semibold border-2 border-yellow-400">
+          </a>
+          <a href="#cardapio" className="bg-transparent text-white px-8 py-3 rounded-full hover:bg-white/10 transition-colors font-semibold border-2 border-yellow-400">
             Ver Cardápio
-          </button>
+          </a>
         </div>
       </div>
     </section>

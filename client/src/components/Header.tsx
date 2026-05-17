@@ -61,9 +61,9 @@ export default function Header({ onCartClick }: HeaderProps) {
                 </span>
               )}
             </button>
-            <button className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-900 transition-colors text-sm font-medium border border-gray-700">
+            <a href="https://wa.me/5569992058071" target="_blank" rel="noopener noreferrer" className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-900 transition-colors text-sm font-medium border border-gray-700 inline-block">
               Faça seu Pedido Online
-            </button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -101,9 +101,9 @@ export default function Header({ onCartClick }: HeaderProps) {
                 {link.label}
               </a>
             ))}
-            <button className="w-full mt-4 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-900 transition-colors text-sm font-medium border border-gray-700">
+            <a href="https://wa.me/5569992058071" target="_blank" rel="noopener noreferrer" className="w-full mt-4 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-900 transition-colors text-sm font-medium border border-gray-700 block text-center">
               Faça seu Pedido Online
-            </button>
+            </a>
           </nav>
         )}
       </div>
