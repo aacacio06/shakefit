@@ -25,12 +25,12 @@ export default function Header({ onCartClick }: HeaderProps) {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a1a] border-b border-gray-800">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#" className="text-white text-2xl font-bold">
+            <a href="#" className="text-black text-2xl font-bold">
               ShakeFit
             </a>
           </div>
@@ -41,7 +41,7 @@ export default function Header({ onCartClick }: HeaderProps) {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+                className="text-gray-600 hover:text-black transition-colors text-sm font-medium"
               >
                 {link.label}
               </a>
@@ -52,7 +52,7 @@ export default function Header({ onCartClick }: HeaderProps) {
           <div className="hidden md:flex items-center space-x-4">
             <button
               onClick={onCartClick}
-              className="text-gray-300 hover:text-white relative"
+              className="text-gray-600 hover:text-black relative"
             >
               <ShoppingCart size={20} />
               {items.length > 0 && (
@@ -61,7 +61,7 @@ export default function Header({ onCartClick }: HeaderProps) {
                 </span>
               )}
             </button>
-            <a href="https://wa.me/5569992058071" target="_blank" rel="noopener noreferrer" className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-900 transition-colors text-sm font-medium border border-gray-700 inline-block">
+            <a href="https://wa.me/5569992058071" target="_blank" rel="noopener noreferrer" className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition-colors text-sm font-medium border border-black inline-block">
               Faça seu Pedido Online
             </a>
           </div>
@@ -70,7 +70,7 @@ export default function Header({ onCartClick }: HeaderProps) {
           <div className="md:hidden flex items-center space-x-4">
             <button
               onClick={onCartClick}
-              className="text-gray-300 hover:text-white relative"
+              className="text-gray-600 hover:text-black relative"
             >
               <ShoppingCart size={20} />
               {items.length > 0 && (
@@ -81,7 +81,7 @@ export default function Header({ onCartClick }: HeaderProps) {
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-300 hover:text-white"
+              className="text-gray-600 hover:text-black"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -90,18 +90,18 @@ export default function Header({ onCartClick }: HeaderProps) {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden pb-4 space-y-2">
+          <nav className="md:hidden pb-4 space-y-2 bg-white">
             {mobileMenuLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="block text-gray-300 hover:text-white px-2 py-2 text-sm font-medium"
+                className="block text-gray-600 hover:text-black px-2 py-2 text-sm font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
               </a>
             ))}
-            <a href="https://wa.me/5569992058071" target="_blank" rel="noopener noreferrer" className="w-full mt-4 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-900 transition-colors text-sm font-medium border border-gray-700 block text-center">
+            <a href="https://wa.me/5569992058071" target="_blank" rel="noopener noreferrer" className="w-full mt-4 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition-colors text-sm font-medium border border-black block text-center">
               Faça seu Pedido Online
             </a>
           </nav>
