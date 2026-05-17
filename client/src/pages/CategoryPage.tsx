@@ -27,6 +27,8 @@ export default function CategoryPage() {
     return groups;
   }, [filteredProducts]);
 
+  const subcategories = Object.entries(groupedProducts);
+
   return (
     <div className="min-h-screen bg-white">
       <Header onCartClick={() => setIsCartOpen(true)} />
@@ -52,13 +54,13 @@ export default function CategoryPage() {
             </p>
           </div>
 
-          {/* Produtos por Subcategoria */}
+          {/* Produtos por Subcategoria em Duas Colunas */}
           {filteredProducts.length > 0 ? (
-            <div className="space-y-12">
-              {Object.entries(groupedProducts).map(([subcategory, subProducts]) => (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {subcategories.map(([subcategory, subProducts]) => (
                 <div key={subcategory}>
                   <h2 className="text-2xl font-bold text-black mb-6">{subcategory}</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 gap-6">
                     {subProducts.map((product) => (
                       <ProductCard key={product.id} product={product} />
                     ))}
