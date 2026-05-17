@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import CartModal from "@/components/CartModal";
 import HeroSection from "@/components/HeroSection";
+import SearchBar from "@/components/SearchBar";
 import CategoryGrid from "@/components/CategoryGrid";
 import CustomizeSection from "@/components/CustomizeSection";
 import SlimDaySection from "@/components/SlimDaySection";
@@ -17,6 +18,7 @@ export default function Home() {
       <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       <main>
         <HeroSection />
+        <SearchBar />
         <CategoryGrid />
         <CustomizeSection />
         <SlimDaySection />
