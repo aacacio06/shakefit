@@ -20,7 +20,7 @@ export default function FeaturedSection() {
 
         {/* Grid de Produtos */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {topProducts.map((product) => (
+          {topProducts.filter(Boolean).map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
