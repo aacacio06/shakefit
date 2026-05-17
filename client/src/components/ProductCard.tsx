@@ -22,7 +22,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       {/* Imagem */}
       <div className="relative w-full h-48 bg-gray-800 overflow-hidden">
         <img
-          src={product.image}
+          src={product.image || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23374151' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='18' fill='%239CA3AF' text-anchor='middle' dominant-baseline='middle'%3E{product.name}%3C/text%3E%3C/svg%3E"}
           alt={product.name}
           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
         />

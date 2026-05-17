@@ -127,6 +127,8 @@ export const products: Product[] = [
     price: 35.00,
     category: "Shakes Proteicos",
     flavors: shakesTrufadoFlavors,
+    image: "/manus-storage/page-2_dc1b4dd5.png",
+    badge: "#1 Mais Pedido",
   },
 
   // Shakes Proteicos - Shake Top
@@ -137,6 +139,7 @@ export const products: Product[] = [
     price: 45.00,
     category: "Shakes Proteicos",
     flavors: shakesTopFlavors,
+    image: "/manus-storage/page-2_dc1b4dd5.png",
   },
 
   // Shake Tópissimo
@@ -147,6 +150,8 @@ export const products: Product[] = [
     price: 69.00,
     category: "Shakes Proteicos",
     flavors: [...shakesTrufadoFlavors, ...shakesTopFlavors],
+    image: "/manus-storage/page-4_505dc15f.png",
+    badge: "#3 Mais Pedido",
   },
 
   // Shake Tradicional
@@ -206,6 +211,7 @@ export const products: Product[] = [
     price: 30.00,
     category: "Bebidas Funcionais",
     calories: "20",
+    image: "/manus-storage/page-2_dc1b4dd5.png",
     badge: "#2 Mais Pedido",
   },
   {

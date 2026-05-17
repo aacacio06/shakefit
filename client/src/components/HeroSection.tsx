@@ -4,7 +4,7 @@ export default function HeroSection() {
   return (
     <section className="relative w-full h-screen bg-cover bg-center flex items-center justify-center overflow-hidden pt-16"
       style={{
-        backgroundImage: "url('https://media.base44.com/images/public/6a08c3ca1ef36ec77508a4d3/8d69960e7_generated_acc3aa78.png')",
+        backgroundImage: "url('/manus-storage/page-1_7f17bc7a.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
