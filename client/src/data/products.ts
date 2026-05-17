@@ -12,6 +12,9 @@ export interface Product {
   fiber?: string;
   flavors?: string[];
   badge?: string;
+  ingredients?: string[];
+  fat?: string;
+  sodium?: string;
 }
 
 // Adicionais
@@ -25,6 +28,7 @@ export const adicionais: Product[] = [
     calories: "97",
     protein: "10g",
     carbs: "10g",
+    ingredients: ["Chocolate", "Açúcar", "Manteiga"],
   },
   {
     id: "add-2",
@@ -34,6 +38,7 @@ export const adicionais: Product[] = [
     category: "Adicionais",
     calories: "8",
     fiber: "5g",
+    ingredients: ["Fibra solúvel", "Mel", "Frutas"],
   },
   {
     id: "add-3",
@@ -45,6 +50,7 @@ export const adicionais: Product[] = [
     protein: "3,5g",
     carbs: "0,7g",
     fiber: "2,8g",
+    ingredients: ["Proteína isolada", "Chocolate", "Cereais"],
   },
   {
     id: "add-4",
@@ -55,6 +61,7 @@ export const adicionais: Product[] = [
     calories: "41",
     protein: "8,3g",
     carbs: "1g",
+    ingredients: ["Whey protein isolada", "Baunilha natural"],
   },
   {
     id: "add-5",
@@ -64,6 +71,7 @@ export const adicionais: Product[] = [
     category: "Adicionais",
     calories: "21,5",
     protein: "4,2g",
+    ingredients: ["Colágeno hidrolisado", "Frutas vermelhas"],
   },
   {
     id: "add-6",
@@ -73,6 +81,7 @@ export const adicionais: Product[] = [
     category: "Adicionais",
     calories: "41",
     protein: "4,5g",
+    ingredients: ["Onactive", "Chocolate"],
   },
 ];
 
@@ -129,6 +138,13 @@ export const products: Product[] = [
     flavors: shakesTrufadoFlavors,
     image: "/manus-storage/correto-05_3ef677f1.png",
     badge: "#1 Mais Pedido",
+    calories: "310",
+    protein: "30g",
+    carbs: "33g",
+    fiber: "1g",
+    fat: "8g",
+    sodium: "150mg",
+    ingredients: ["Leite integral", "Whey protein", "Frutas selecionadas", "Xarope sabor", "Gelo"],
   },
 
   // Shakes Proteicos - Shake Top
@@ -140,6 +156,13 @@ export const products: Product[] = [
     category: "Shakes Proteicos",
     flavors: shakesTopFlavors,
     image: "/manus-storage/correto-06_f6af3837.png",
+    calories: "350",
+    protein: "32g",
+    carbs: "38g",
+    fiber: "1,5g",
+    fat: "9g",
+    sodium: "160mg",
+    ingredients: ["Leite integral", "Whey protein", "Frutas premium", "Xarope especial", "Gelo"],
   },
 
   // Shake Tópissimo
@@ -152,6 +175,13 @@ export const products: Product[] = [
     flavors: [...shakesTrufadoFlavors, ...shakesTopFlavors],
     image: "/manus-storage/correto-11_e9feacde.png",
     badge: "#3 Mais Pedido",
+    calories: "450",
+    protein: "35g",
+    carbs: "50g",
+    fiber: "2g",
+    fat: "12g",
+    sodium: "200mg",
+    ingredients: ["Leite integral", "Whey protein", "Frutas selecionadas", "Waffle", "Cobertura especial"],
   },
 
   // Shake Tradicional
@@ -165,7 +195,10 @@ export const products: Product[] = [
     protein: "19g",
     carbs: "22g",
     fiber: "6g",
+    fat: "5g",
+    sodium: "120mg",
     image: "/manus-storage/correto-09_0ac63d0c.png",
+    ingredients: ["Leite", "Whey protein", "Frutas", "Gelo"],
   },
 
   // Bebidas Funcionais
@@ -176,6 +209,7 @@ export const products: Product[] = [
     price: 7.00,
     category: "Bebidas Funcionais",
     calories: "0",
+    ingredients: ["Chá preto", "Guaraná", "Água"],
   },
   {
     id: "cha-herbal",
@@ -183,6 +217,8 @@ export const products: Product[] = [
     description: "Bebida à base de chá verde, chá preto e ervas aromáticas. Acelera o metabolismo.",
     price: 7.00,
     category: "Bebidas Funcionais",
+    calories: "0",
+    ingredients: ["Chá verde", "Chá preto", "Ervas aromáticas", "Água"],
   },
   {
     id: "cha-nrg-herbal",
@@ -190,6 +226,8 @@ export const products: Product[] = [
     description: "Fonte de cafeína, guaraná, chá verde e chá preto. Dá mais energia, disposição e acelera o metabolismo.",
     price: 14.00,
     category: "Bebidas Funcionais",
+    calories: "0",
+    ingredients: ["Chá preto", "Guaraná", "Chá verde", "Ervas", "Água"],
   },
   {
     id: "fiber-drink",
@@ -197,6 +235,9 @@ export const products: Product[] = [
     description: "Bebida à base de fibra. Sabores: manga, uva ou limão e mel — com água com gás.",
     price: 21.00,
     category: "Bebidas Funcionais",
+    calories: "15",
+    fiber: "5g",
+    ingredients: ["Fibra solúvel", "Frutas", "Mel", "Água com gás"],
   },
   {
     id: "mega-tea",
@@ -204,6 +245,9 @@ export const products: Product[] = [
     description: "Contém chá NRG + chá Herbal + fibra. Sabores: manga, uva ou limão e mel.",
     price: 21.00,
     category: "Bebidas Funcionais",
+    calories: "10",
+    fiber: "4g",
+    ingredients: ["Chá preto", "Guaraná", "Chá verde", "Fibra", "Frutas", "Água"],
   },
   {
     id: "sunset-drink",
@@ -214,6 +258,7 @@ export const products: Product[] = [
     calories: "20",
     image: "/manus-storage/correto-01_147e704c.png",
     badge: "#2 Mais Pedido",
+    ingredients: ["Frutas vermelhas", "Gengibre", "Limão", "Mel", "Água"],
   },
   {
     id: "litrao-detox",
@@ -223,6 +268,7 @@ export const products: Product[] = [
     category: "Bebidas Funcionais",
     calories: "20",
     image: "/manus-storage/correto-20_fcfdc920.png",
+    ingredients: ["Frutas vermelhas", "Gengibre", "Limão", "Mel", "Água"],
   },
   {
     id: "shot-imunidade",
@@ -230,6 +276,8 @@ export const products: Product[] = [
     description: "Fortalece o sistema imunológico, diminui a retenção de líquidos e melhora o sistema imunológico.",
     price: 21.00,
     category: "Bebidas Funcionais",
+    calories: "25",
+    ingredients: ["Gengibre", "Cúrcuma", "Mel", "Limão", "Água"],
   },
   {
     id: "beauty-drink",
@@ -240,6 +288,9 @@ export const products: Product[] = [
     calories: "43",
     protein: "84g",
     carbs: "23g",
+    fat: "0,5g",
+    sodium: "80mg",
+    ingredients: ["Colágeno hidrolisado", "Whey protein", "Frutas vermelhas", "Vitaminas", "Minerais"],
   },
   {
     id: "whey-protein",
@@ -250,6 +301,9 @@ export const products: Product[] = [
     calories: "128",
     protein: "25g",
     carbs: "3,3g",
+    fat: "1g",
+    sodium: "100mg",
+    ingredients: ["Whey protein isolada", "Baunilha natural", "Leite"],
   },
   {
     id: "hype-drink",
@@ -259,6 +313,9 @@ export const products: Product[] = [
     category: "Bebidas Funcionais",
     image: "/manus-storage/correto-16_b2e79e2f.png",
     badge: "The Best",
+    calories: "35",
+    carbs: "8g",
+    ingredients: ["Guaraná", "Cafeína", "Frutas", "Água com gás"],
   },
 
   // Salgados Proteicos
@@ -269,6 +326,12 @@ export const products: Product[] = [
     price: 15.00,
     category: "Salgados Proteicos",
     image: "/manus-storage/correto-02_a6677319.png",
+    calories: "180",
+    protein: "12g",
+    carbs: "15g",
+    fat: "8g",
+    sodium: "300mg",
+    ingredients: ["Queijo", "Polvilho", "Ovos", "Leite", "Sal"],
   },
   {
     id: "pizza-proteica",
@@ -277,6 +340,12 @@ export const products: Product[] = [
     price: 35.00,
     category: "Salgados Proteicos",
     image: "/manus-storage/correto-13_8b4c9358.png",
+    calories: "280",
+    protein: "18g",
+    carbs: "25g",
+    fat: "12g",
+    sodium: "450mg",
+    ingredients: ["Massa integral", "Queijo", "Presunto", "Azeitona", "Tomate"],
   },
   {
     id: "broinhas-fritas",
@@ -285,6 +354,12 @@ export const products: Product[] = [
     price: 18.00,
     category: "Salgados Proteicos",
     image: "/manus-storage/correto-14_ccce6eaf.png",
+    calories: "150",
+    protein: "8g",
+    carbs: "12g",
+    fat: "7g",
+    sodium: "250mg",
+    ingredients: ["Farinha integral", "Queijo", "Ovos", "Sal"],
   },
 
   // Sobremesas Proteicas
@@ -295,6 +370,12 @@ export const products: Product[] = [
     price: 20.00,
     category: "Sobremesas Proteicas",
     image: "/manus-storage/correto-03_6403d3ae.png",
+    calories: "120",
+    protein: "6g",
+    carbs: "14g",
+    fat: "5g",
+    sodium: "50mg",
+    ingredients: ["Chocolate", "Leite condensado", "Manteiga", "Proteína em pó"],
   },
   {
     id: "waffle-cobertura",
@@ -303,6 +384,12 @@ export const products: Product[] = [
     price: 25.00,
     category: "Sobremesas Proteicas",
     image: "/manus-storage/correto-04_8d37f549.png",
+    calories: "200",
+    protein: "8g",
+    carbs: "22g",
+    fat: "9g",
+    sodium: "150mg",
+    ingredients: ["Farinha", "Ovos", "Leite", "Chocolate", "Cobertura"],
   },
   {
     id: "waffle-simples",
@@ -311,6 +398,12 @@ export const products: Product[] = [
     price: 18.00,
     category: "Sobremesas Proteicas",
     image: "/manus-storage/correto-08_07852e59.png",
+    calories: "150",
+    protein: "6g",
+    carbs: "18g",
+    fat: "6g",
+    sodium: "120mg",
+    ingredients: ["Farinha integral", "Ovos", "Leite", "Sal"],
   },
   {
     id: "mousse",
@@ -319,6 +412,12 @@ export const products: Product[] = [
     price: 22.00,
     category: "Sobremesas Proteicas",
     image: "/manus-storage/correto-10_b7f8087c.png",
+    calories: "140",
+    protein: "10g",
+    carbs: "12g",
+    fat: "6g",
+    sodium: "80mg",
+    ingredients: ["Leite", "Proteína em pó", "Chocolate", "Gelatina"],
   },
 ];
 
