@@ -127,7 +127,7 @@ export const products: Product[] = [
     price: 35.00,
     category: "Shakes Proteicos",
     flavors: shakesTrufadoFlavors,
-    image: "/manus-storage/page-2_dc1b4dd5.png",
+    image: "/manus-storage/correto-05_3ef677f1.png",
     badge: "#1 Mais Pedido",
   },
 
@@ -139,7 +139,7 @@ export const products: Product[] = [
     price: 45.00,
     category: "Shakes Proteicos",
     flavors: shakesTopFlavors,
-    image: "/manus-storage/page-2_dc1b4dd5.png",
+    image: "/manus-storage/correto-06_f6af3837.png",
   },
 
   // Shake Tópissimo
@@ -150,7 +150,7 @@ export const products: Product[] = [
     price: 69.00,
     category: "Shakes Proteicos",
     flavors: [...shakesTrufadoFlavors, ...shakesTopFlavors],
-    image: "/manus-storage/page-4_505dc15f.png",
+    image: "/manus-storage/correto-11_e9feacde.png",
     badge: "#3 Mais Pedido",
   },
 
@@ -165,6 +165,7 @@ export const products: Product[] = [
     protein: "19g",
     carbs: "22g",
     fiber: "6g",
+    image: "/manus-storage/correto-09_0ac63d0c.png",
   },
 
   // Bebidas Funcionais
@@ -211,7 +212,7 @@ export const products: Product[] = [
     price: 30.00,
     category: "Bebidas Funcionais",
     calories: "20",
-    image: "/manus-storage/page-2_dc1b4dd5.png",
+    image: "/manus-storage/correto-01_147e704c.png",
     badge: "#2 Mais Pedido",
   },
   {
@@ -221,6 +222,7 @@ export const products: Product[] = [
     price: 30.00,
     category: "Bebidas Funcionais",
     calories: "20",
+    image: "/manus-storage/correto-20_fcfdc920.png",
   },
   {
     id: "shot-imunidade",
@@ -248,6 +250,74 @@ export const products: Product[] = [
     calories: "128",
     protein: "25g",
     carbs: "3,3g",
+  },
+  {
+    id: "hype-drink",
+    name: "Hype Drink Turbo",
+    description: "Bebida energética com poder total.",
+    price: 25.00,
+    category: "Bebidas Funcionais",
+    image: "/manus-storage/correto-16_b2e79e2f.png",
+  },
+
+  // Salgados Proteicos
+  {
+    id: "pao-queijo",
+    name: "Pão de Queijo",
+    description: "Pão de queijo proteico e delicioso.",
+    price: 15.00,
+    category: "Salgados Proteicos",
+    image: "/manus-storage/correto-02_a6677319.png",
+  },
+  {
+    id: "pizza-proteica",
+    name: "Pizza Proteica",
+    description: "Pizza com queijo, presunto e azeitona.",
+    price: 35.00,
+    category: "Salgados Proteicos",
+    image: "/manus-storage/correto-13_8b4c9358.png",
+  },
+  {
+    id: "broinhas-fritas",
+    name: "Broinhas Fritas",
+    description: "Broinhas crocantes e saudáveis.",
+    price: 18.00,
+    category: "Salgados Proteicos",
+    image: "/manus-storage/correto-14_ccce6eaf.png",
+  },
+
+  // Sobremesas Proteicas
+  {
+    id: "brigadeiro",
+    name: "Brigadeiro Proteico",
+    description: "Brigadeiro feito com ingredientes proteicos.",
+    price: 20.00,
+    category: "Sobremesas Proteicas",
+    image: "/manus-storage/correto-03_6403d3ae.png",
+  },
+  {
+    id: "waffle-cobertura",
+    name: "Waffle com Cobertura",
+    description: "Waffle quentinho com cobertura especial.",
+    price: 25.00,
+    category: "Sobremesas Proteicas",
+    image: "/manus-storage/correto-04_8d37f549.png",
+  },
+  {
+    id: "waffle-simples",
+    name: "Waffle Simples",
+    description: "Waffle crocante e saudável.",
+    price: 18.00,
+    category: "Sobremesas Proteicas",
+    image: "/manus-storage/correto-08_07852e59.png",
+  },
+  {
+    id: "mousse",
+    name: "Mousse Proteica",
+    description: "Mousse cremosa com cobertura especial.",
+    price: 22.00,
+    category: "Sobremesas Proteicas",
+    image: "/manus-storage/correto-10_b7f8087c.png",
   },
 ];
 

@@ -29,7 +29,7 @@ export default function SlimDaySection() {
           {/* Imagem */}
           <div className="relative w-full h-96 bg-gray-800 rounded-lg overflow-hidden">
             <img
-              src="/manus-storage/page-5_6da6df8a.png"
+              src="/manus-storage/correto-07_d9ffde42.png"
               alt="Slim Day"
               className="w-full h-full object-cover"
             />
