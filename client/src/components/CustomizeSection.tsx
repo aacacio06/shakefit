@@ -44,7 +44,7 @@ export default function CustomizeSection() {
         <div className="max-w-2xl mx-auto bg-white rounded-lg overflow-hidden border border-gray-200">
           <div className="h-64 bg-gray-800 flex items-center justify-center">
             <img
-              src="https://media.base44.com/images/public/6a08c3ca1ef36ec77508a4d3/8d69960e7_generated_acc3aa78.png"
+              src="/manus-storage/WhatsAppImage2026-05-16at15.24.59(1)_d1e0e933.jpeg"
               alt="Shake Tópissimo"
               className="w-full h-full object-cover"
             />
