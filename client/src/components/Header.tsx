@@ -1,14 +1,27 @@
 import { useState } from "react";
 import { Menu, X, ShoppingCart } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
 
-export default function Header() {
+interface HeaderProps {
+  onCartClick?: () => void;
+}
+
+export default function Header({ onCartClick }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { items } = useCart();
 
   const navLinks = [
     { label: "Cardápio", href: "#cardapio" },
     { label: "Monte seu Shake", href: "#monte-seu" },
     { label: "Slim Day", href: "#slim-day" },
-    { label: "Sobre Nós", href: "#sobre" },
+  ];
+
+  const mobileMenuLinks = [
+    ...navLinks,
+    { label: "Sobre", href: "#sobre" },
+    { label: "Missão", href: "#missao" },
+    { label: "Visão", href: "#visao" },
+    { label: "Valores", href: "#valores" },
   ];
 
   return (
@@ -37,8 +50,16 @@ export default function Header() {
 
           {/* Right side buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="text-gray-300 hover:text-white">
+            <button
+              onClick={onCartClick}
+              className="text-gray-300 hover:text-white relative"
+            >
               <ShoppingCart size={20} />
+              {items.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {items.length}
+                </span>
+              )}
             </button>
             <button className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-900 transition-colors text-sm font-medium border border-gray-700">
               Faça seu Pedido Online
@@ -47,8 +68,16 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-4">
-            <button className="text-gray-300 hover:text-white">
+            <button
+              onClick={onCartClick}
+              className="text-gray-300 hover:text-white relative"
+            >
               <ShoppingCart size={20} />
+              {items.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {items.length}
+                </span>
+              )}
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -62,7 +91,7 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="md:hidden pb-4 space-y-2">
-            {navLinks.map((link) => (
+            {mobileMenuLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}

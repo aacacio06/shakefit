@@ -1,6 +1,7 @@
+import { useState } from "react";
 import Header from "@/components/Header";
+import CartModal from "@/components/CartModal";
 import HeroSection from "@/components/HeroSection";
-import FeaturedSection from "@/components/FeaturedSection";
 import MenuSection from "@/components/MenuSection";
 import CustomizeSection from "@/components/CustomizeSection";
 import SlimDaySection from "@/components/SlimDaySection";
@@ -8,12 +9,14 @@ import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-black">
-      <Header />
+      <Header onCartClick={() => setIsCartOpen(true)} />
+      <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       <main>
         <HeroSection />
-        <FeaturedSection />
         <MenuSection />
         <CustomizeSection />
         <SlimDaySection />
