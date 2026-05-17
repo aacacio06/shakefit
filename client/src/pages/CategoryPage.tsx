@@ -19,17 +19,19 @@ export default function CategoryPage() {
       <Header onCartClick={() => setIsCartOpen(true)} />
       <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
 
+      {/* Botão de Voltar Fixo */}
+      <button
+        onClick={() => window.history.back()}
+        className="fixed bottom-8 right-8 z-40 flex items-center gap-2 bg-black text-white px-4 py-3 rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold"
+      >
+        <ArrowLeft size={20} />
+        Voltar
+      </button>
+
       <main className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Botão de Voltar e Título da Categoria */}
+          {/* Título da Categoria */}
           <div className="mb-12">
-            <button
-              onClick={() => window.history.back()}
-              className="flex items-center gap-2 text-black hover:text-gray-700 transition-colors mb-6 font-semibold"
-            >
-              <ArrowLeft size={20} />
-              Voltar
-            </button>
             <h1 className="text-4xl sm:text-5xl font-bold text-black mb-4">
               {decodedCategory}
             </h1>
