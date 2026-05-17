@@ -1,0 +1,83 @@
+import { useState } from "react";
+import { Menu, X, ShoppingCart } from "lucide-react";
+
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navLinks = [
+    { label: "Cardápio", href: "#cardapio" },
+    { label: "Monte seu Shake", href: "#monte-seu" },
+    { label: "Slim Day", href: "#slim-day" },
+    { label: "Sobre Nós", href: "#sobre" },
+  ];
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a1a] border-b border-gray-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <a href="#" className="text-white text-2xl font-bold">
+              ShakeFit
+            </a>
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Right side buttons */}
+          <div className="hidden md:flex items-center space-x-4">
+            <button className="text-gray-300 hover:text-white">
+              <ShoppingCart size={20} />
+            </button>
+            <button className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-900 transition-colors text-sm font-medium border border-gray-700">
+              Faça seu Pedido Online
+            </button>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center space-x-4">
+            <button className="text-gray-300 hover:text-white">
+              <ShoppingCart size={20} />
+            </button>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-gray-300 hover:text-white"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <nav className="md:hidden pb-4 space-y-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="block text-gray-300 hover:text-white px-2 py-2 text-sm font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            <button className="w-full mt-4 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-900 transition-colors text-sm font-medium border border-gray-700">
+              Faça seu Pedido Online
+            </button>
+          </nav>
+        )}
+      </div>
+    </header>
+  );
+}
