@@ -40,15 +40,14 @@ export default function CategoryPage() {
       <Header onCartClick={() => setIsCartOpen(true)} />
       <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
 
-      {/* Botão de Voltar Fixo */}
-      <button
-        onClick={() => window.history.back()}
-        className="fixed top-6 left-6 z-40 flex items-center justify-center bg-black text-white p-2 rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl"
-      >
-        <ArrowLeft size={18} />
-      </button>
-
-      <main className="py-16 sm:py-24">
+      <main className="py-16 sm:py-24 relative">
+        {/* Botão de Voltar Fixo */}
+        <button
+          onClick={() => window.history.back()}
+          className="fixed top-8 left-8 z-50 flex items-center justify-center bg-black text-white p-3 rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl"
+        >
+          <ArrowLeft size={20} />
+        </button>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Título da Categoria */}
           <div className="mb-12">
