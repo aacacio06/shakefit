@@ -258,6 +258,7 @@ export const products: Product[] = [
     price: 25.00,
     category: "Bebidas Funcionais",
     image: "/manus-storage/correto-16_b2e79e2f.png",
+    badge: "The Best",
   },
 
   // Salgados Proteicos
