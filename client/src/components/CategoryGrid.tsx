@@ -43,6 +43,9 @@ export default function CategoryGrid() {
                     style={category === "Combos" ? {
                       objectFit: "cover",
                       objectPosition: "center 30%"
+                    } : category === "Bebidas Funcionais" ? {
+                      objectFit: "cover",
+                      objectPosition: "center 60%"
                     } : {
                       objectFit: "cover",
                       objectPosition: "center"
