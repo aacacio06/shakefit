@@ -56,7 +56,7 @@ export default function Header({ onCartClick }: HeaderProps) {
             >
               <ShoppingCart size={20} />
               {items.length > 0 && (
-                <span className="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                <span className="absolute -top-2 -right-2 bg-black text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                   {items.length}
                 </span>
               )}
@@ -74,7 +74,7 @@ export default function Header({ onCartClick }: HeaderProps) {
             >
               <ShoppingCart size={20} />
               {items.length > 0 && (
-                <span className="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                <span className="absolute -top-2 -right-2 bg-black text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                   {items.length}
                 </span>
               )}

@@ -51,7 +51,7 @@ export default function Footer() {
               <p>Sáb: 7:00 às 11:30</p>
               <p>Dom: 7:00 às 10:30</p>
               <p className="font-semibold text-black mt-2">WhatsApp:</p>
-              <a href="https://wa.me/5569992058071" className="text-yellow-600 hover:text-yellow-700 transition-colors font-semibold">+55 69 99920-5807</a>
+              <a href="https://wa.me/5569992058071" className="text-black hover:text-gray-700 transition-colors font-semibold">+55 69 99920-5807</a>
             </div>
           </div>
 
@@ -64,14 +64,14 @@ export default function Footer() {
             <div className="flex gap-4">
               <a
                 href="https://www.instagram.com/shakefitopo"
-                className="text-gray-600 hover:text-yellow-600 transition-colors"
+                className="text-gray-600 hover:text-black transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram size={20} />
               </a>
               <a
                 href="https://wa.me/5569992058071"
-                className="text-gray-600 hover:text-yellow-600 transition-colors"
+                className="text-gray-600 hover:text-black transition-colors"
                 aria-label="WhatsApp"
               >
                 <Facebook size={20} />

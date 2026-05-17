@@ -43,15 +43,15 @@
 }
 
 :root {
-  --primary: #CCFF00;
-  --primary-foreground: #000000;
-  --sidebar-primary: #CCFF00;
-  --sidebar-primary-foreground: #000000;
-  --chart-1: #CCFF00;
-  --chart-2: #CCFF00;
-  --chart-3: #CCFF00;
-  --chart-4: #CCFF00;
-  --chart-5: #CCFF00;
+  --primary: #000000;
+  --primary-foreground: #FFFFFF;
+  --sidebar-primary: #000000;
+  --sidebar-primary-foreground: #FFFFFF;
+  --chart-1: #000000;
+  --chart-2: #000000;
+  --chart-3: #000000;
+  --chart-4: #000000;
+  --chart-5: #000000;
   --radius: 0.65rem;
   --background: #FFFFFF;
   --foreground: #000000;
@@ -63,26 +63,26 @@
   --secondary-foreground: #000000;
   --muted: #D3D3D3;
   --muted-foreground: #666666;
-  --accent: #CCFF00;
-  --accent-foreground: #000000;
+  --accent: #000000;
+  --accent-foreground: #FFFFFF;
   --destructive: #ff4444;
   --destructive-foreground: #FFFFFF;
   --border: #E0E0E0;
   --input: #F0F0F0;
-  --ring: #CCFF00;
+  --ring: #000000;
   --sidebar: #F5F5F5;
   --sidebar-foreground: #000000;
-  --sidebar-accent: #CCFF00;
-  --sidebar-accent-foreground: #000000;
+  --sidebar-accent: #000000;
+  --sidebar-accent-foreground: #FFFFFF;
   --sidebar-border: #E0E0E0;
-  --sidebar-ring: #CCFF00;
+  --sidebar-ring: #000000;
 }
 
 .dark {
-  --primary: #CCFF00;
-  --primary-foreground: #000000;
-  --sidebar-primary: #CCFF00;
-  --sidebar-primary-foreground: #000000;
+  --primary: #000000;
+  --primary-foreground: #FFFFFF;
+  --sidebar-primary: #000000;
+  --sidebar-primary-foreground: #FFFFFF;
   --background: #000000;
   --foreground: #FFFFFF;
   --card: #1a1a1a;
@@ -93,24 +93,24 @@
   --secondary-foreground: #FFFFFF;
   --muted: #404040;
   --muted-foreground: #a0a0a0;
-  --accent: #CCFF00;
-  --accent-foreground: #000000;
+  --accent: #000000;
+  --accent-foreground: #FFFFFF;
   --destructive: #ff4444;
   --destructive-foreground: #FFFFFF;
   --border: #333333;
   --input: #2a2a2a;
-  --ring: #CCFF00;
-  --chart-1: #CCFF00;
-  --chart-2: #CCFF00;
-  --chart-3: #CCFF00;
-  --chart-4: #CCFF00;
-  --chart-5: #CCFF00;
+  --ring: #000000;
+  --chart-1: #000000;
+  --chart-2: #000000;
+  --chart-3: #000000;
+  --chart-4: #000000;
+  --chart-5: #000000;
   --sidebar: #1a1a1a;
   --sidebar-foreground: #FFFFFF;
-  --sidebar-accent: #CCFF00;
-  --sidebar-accent-foreground: #000000;
+  --sidebar-accent: #000000;
+  --sidebar-accent-foreground: #FFFFFF;
   --sidebar-border: #333333;
-  --sidebar-ring: #CCFF00;
+  --sidebar-ring: #000000;
 }
 
 @layer base {

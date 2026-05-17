@@ -13,7 +13,7 @@ export default function SlimDaySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Cabeçalho */}
         <div className="text-center mb-12">
-          <p className="text-yellow-400 text-sm font-bold uppercase tracking-wider mb-2">
+          <p className="text-black text-sm font-bold uppercase tracking-wider mb-2">
             Detox e Bem-Estar
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
@@ -39,8 +39,8 @@ export default function SlimDaySection() {
           <div className="space-y-4">
             {benefits.map((benefit, index) => (
               <div key={index} className="flex items-center gap-4">
-                <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-black font-bold text-sm">✓</span>
+                <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-bold text-sm">✓</span>
                 </div>
                 <span className="text-black text-lg">{benefit}</span>
               </div>
@@ -51,10 +51,10 @@ export default function SlimDaySection() {
           <div className="bg-gray-50 rounded-lg p-8 border border-gray-200">
             <div className="text-center mb-8">
               <h3 className="text-black font-bold text-2xl mb-4">Pacote Completo</h3>
-              <span className="text-yellow-400 font-bold text-4xl">R$ 159,00</span>
+              <span className="text-black font-bold text-4xl">R$ 159,00</span>
             </div>
 
-            <a href="https://wa.me/5569992058071" target="_blank" rel="noopener noreferrer" className="w-full bg-yellow-400 text-black py-3 rounded-lg hover:bg-yellow-500 transition-colors font-bold mb-6 text-lg block text-center">
+            <a href="https://wa.me/5569992058071" target="_blank" rel="noopener noreferrer" className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition-colors font-bold mb-6 text-lg block text-center">
               Quero meu Slim Day
             </a>
 

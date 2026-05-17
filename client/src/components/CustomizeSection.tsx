@@ -13,7 +13,7 @@ export default function CustomizeSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Cabeçalho */}
         <div className="text-center mb-12">
-          <p className="text-yellow-400 text-sm font-bold uppercase tracking-wider mb-2">
+          <p className="text-black text-sm font-bold uppercase tracking-wider mb-2">
             MONTE O SEU
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
@@ -57,16 +57,16 @@ export default function CustomizeSection() {
             </p>
 
             <div className="flex items-center justify-between mb-6">
-              <span className="text-yellow-400 font-bold text-2xl">R$ 69,00</span>
+              <span className="text-black font-bold text-2xl">R$ 69,00</span>
             </div>
 
-            <a href="https://wa.me/5569992058071" target="_blank" rel="noopener noreferrer" className="w-full bg-yellow-400 text-black py-3 rounded-lg hover:bg-yellow-500 transition-colors font-bold mb-4 block text-center">
+            <a href="https://wa.me/5569992058071" target="_blank" rel="noopener noreferrer" className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition-colors font-bold mb-4 block text-center">
               Começar Personalização
             </a>
 
             <div className="flex items-center justify-between text-gray-600 text-sm">
               <span>Total estimado</span>
-              <span className="text-yellow-400 font-bold text-lg">R$ 69,00</span>
+              <span className="text-black font-bold text-lg">R$ 69,00</span>
             </div>
 
             <button className="w-full mt-4 bg-gray-200 text-gray-700 py-2 rounded-lg hover:bg-gray-300 transition-colors font-semibold">

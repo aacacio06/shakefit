@@ -31,7 +31,7 @@ export default function AboutSection() {
       <section id="sobre" className="bg-gray-50 py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-yellow-400 text-sm font-bold uppercase tracking-wider mb-2">
+            <p className="text-black text-sm font-bold uppercase tracking-wider mb-2">
               SOBRE NÓS
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
@@ -51,7 +51,7 @@ export default function AboutSection() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <p className="text-yellow-600 font-bold text-3xl sm:text-4xl mb-2">
+                <p className="text-black font-bold text-3xl sm:text-4xl mb-2">
                   {stat.number}
                 </p>
                 <p className="text-gray-600 text-sm sm:text-base">{stat.label}</p>
@@ -65,7 +65,7 @@ export default function AboutSection() {
       <section id="missao" className="bg-white py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="text-yellow-400 text-sm font-bold uppercase tracking-wider mb-2">
+            <p className="text-black text-sm font-bold uppercase tracking-wider mb-2">
               NOSSA MISSÃO
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-black mb-6">
@@ -82,7 +82,7 @@ export default function AboutSection() {
       <section id="visao" className="bg-gray-50 py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="text-yellow-400 text-sm font-bold uppercase tracking-wider mb-2">
+            <p className="text-black text-sm font-bold uppercase tracking-wider mb-2">
               NOSSA VISÃO
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-black mb-6">
@@ -99,7 +99,7 @@ export default function AboutSection() {
       <section id="valores" className="bg-white py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-yellow-400 text-sm font-bold uppercase tracking-wider mb-2">
+            <p className="text-black text-sm font-bold uppercase tracking-wider mb-2">
               NOSSOS VALORES
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-black">
@@ -110,7 +110,7 @@ export default function AboutSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
               <div key={index} className="bg-gray-50 p-6 rounded-lg text-center border border-gray-200">
-                <h3 className="text-yellow-600 font-bold text-lg mb-3">
+                <h3 className="text-black font-bold text-lg mb-3">
                   {value.title}
                 </h3>
                 <p className="text-gray-700">{value.description}</p>

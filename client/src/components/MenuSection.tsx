@@ -14,7 +14,7 @@ export default function MenuSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Cabeçalho */}
         <div className="text-center mb-12">
-          <p className="text-yellow-400 text-sm font-bold uppercase tracking-wider mb-2">
+          <p className="text-black text-sm font-bold uppercase tracking-wider mb-2">
             NOSSO CARDÁPIO
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
@@ -33,7 +33,7 @@ export default function MenuSection() {
               onClick={() => setActiveCategory(category)}
               className={`px-4 sm:px-6 py-2 rounded-full font-semibold transition-colors text-sm sm:text-base ${
                 activeCategory === category
-                  ? "bg-yellow-400 text-black"
+                  ? "bg-black text-white"
                   : "bg-gray-200 text-gray-700 hover:bg-gray-300"
               }`}
             >
