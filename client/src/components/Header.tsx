@@ -31,7 +31,7 @@ export default function Header({ onCartClick }: HeaderProps) {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center gap-2">
             <a href="#" className="text-2xl font-bold">
-              <span className="text-teal-600">Shake</span><span className="text-red-500">Fit</span>
+              <span className="text-teal-600">Shake</span><span className="text-orange-400">Fit</span>
             </a>
             <img
               src="/manus-storage/WhatsAppImage2026-05-16at15.24.59(3)_2cffebb0.jpeg"
