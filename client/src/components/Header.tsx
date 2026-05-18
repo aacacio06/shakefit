@@ -29,10 +29,15 @@ export default function Header({ onCartClick }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 flex items-center gap-2">
             <a href="#" className="text-black text-2xl font-bold">
               ShakeFit
             </a>
+            <img
+              src="/manus-storage/WhatsAppImage2026-05-16at15.24.59(3)_2cffebb0.jpeg"
+              alt="Shake Fit Logo"
+              className="h-12 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
