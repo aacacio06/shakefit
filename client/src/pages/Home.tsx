@@ -1,9 +1,13 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import CartModal from "@/components/CartModal";
+import HeroSection from "@/components/HeroSection";
 import SearchBar from "@/components/SearchBar";
 import CategoryGrid from "@/components/CategoryGrid";
 import FeaturedProduct from "@/components/FeaturedProduct";
+import CustomizeSection from "@/components/CustomizeSection";
+import SlimDaySection from "@/components/SlimDaySection";
+import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -14,6 +18,7 @@ export default function Home() {
       <Header onCartClick={() => setIsCartOpen(true)} />
       <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       <main>
+        <HeroSection />
         <SearchBar />
         <CategoryGrid />
         <FeaturedProduct
@@ -25,6 +30,9 @@ export default function Home() {
           imagePosition="center 35%"
           category="Bebidas Funcionais"
         />
+        <CustomizeSection />
+        <SlimDaySection />
+        <AboutSection />
       </main>
       <Footer />
     </div>
