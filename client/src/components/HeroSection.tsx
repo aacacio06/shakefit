@@ -1,14 +1,19 @@
-
-
 export default function HeroSection() {
   return (
     <section className="relative w-full bg-white flex items-center justify-center overflow-hidden py-4 sm:py-6">
-      <img
-        src="/manus-storage/WhatsAppImage2026-05-16at15.24.59(1)_d1e0e933.jpeg"
-        alt="Shake Fit"
-        className="w-full h-auto object-contain"
-      />
-
+      <div className="relative w-full flex items-center justify-center">
+        <img
+          src="/manus-storage/WhatsAppImage2026-05-16at15.25.03(7)_be28a155.jpeg"
+          alt="Hype Drink Turbo"
+          className="w-full h-auto object-contain"
+        />
+        <a
+          href="#cardapio"
+          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition-colors font-semibold text-sm sm:text-base"
+        >
+          Ver Cardápio
+        </a>
+      </div>
     </section>
   );
 }
