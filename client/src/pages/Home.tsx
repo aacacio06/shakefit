@@ -24,8 +24,6 @@ export default function Home() {
         <FeaturedProduct
           id="hype-drink-turbo"
           name="Hype Drink Turbo"
-          description="Bebida energética com poder total. Perfeita para quem busca energia, disposição e um sabor incrível. Feita com ingredientes selecionados para potencializar seu desempenho."
-          price={25.00}
           image="/manus-storage/WhatsAppImage2026-05-16at15.25.01(1)_380b54d6.jpeg"
           imagePosition="center 35%"
           category="Bebidas Funcionais"
