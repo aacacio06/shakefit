@@ -45,7 +45,7 @@ export default function FeaturedProduct({
           <div className="flex items-center justify-center md:justify-start">
             <button
               onClick={handleNavigateToCategory}
-              className="text-5xl sm:text-6xl font-bold text-black hover:text-yellow-600 transition-colors duration-300 text-center md:text-left"
+              className="text-3xl sm:text-4xl font-bold text-black hover:text-yellow-600 transition-colors duration-300 text-center md:text-left"
             >
               {name}
             </button>
