@@ -7,7 +7,7 @@ export default function CategoryGrid() {
   const categoryImages: Record<string, string> = {
     "Shakes Proteicos": "/manus-storage/WhatsAppImage2026-05-16at15.25.03(4)_88c33fdb.jpeg",
     "Bebidas Funcionais": "/manus-storage/WhatsAppImage2026-05-17at11.43.13_273e2553.jpeg",
-    "Salgados Proteicos": "",
+    "Salgados Proteicos": "/manus-storage/WhatsAppImage2026-05-16at16.36.59_e7f28ed3.jpeg",
     "Sobremesas Proteicas": "",
     "Combos": "/manus-storage/WhatsAppImage2026-05-16at15.25.03(6)_88cc8869.jpeg",
   };
