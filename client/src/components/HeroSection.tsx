@@ -1,11 +1,11 @@
 export default function HeroSection() {
   return (
-    <section className="relative w-full bg-white flex items-center justify-center overflow-hidden py-4 sm:py-6">
-      <div className="relative w-full flex items-center justify-center">
+    <section className="relative w-full bg-white flex items-center justify-center py-4 sm:py-6">
+      <div className="relative flex items-center justify-center max-w-full">
         <img
           src="/manus-storage/WhatsAppImage2026-05-16at15.25.03(7)_be28a155.jpeg"
           alt="Hype Drink Turbo"
-          className="w-full h-auto object-contain"
+          className="max-w-full h-auto"
         />
         <a
           href="#cardapio"
