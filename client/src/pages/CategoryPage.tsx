@@ -31,9 +31,9 @@ export default function CategoryPage() {
   const subcategories = Object.entries(groupedProducts);
   const subcategoryNames = subcategories.map(([name]) => name);
 
-  // Se nenhuma subcategoria foi selecionada, seleciona a primeira
-  const activeSubcategory = selectedSubcategory || subcategoryNames[0];
-  const displayedProducts = groupedProducts[activeSubcategory] || [];
+  // Não seleciona automaticamente - aguarda seleção do usuário
+  const activeSubcategory = selectedSubcategory;
+  const displayedProducts = activeSubcategory ? (groupedProducts[activeSubcategory] || []) : [];
 
   return (
     <div className="min-h-screen bg-white">
@@ -79,7 +79,11 @@ export default function CategoryPage() {
           )}
 
           {/* Produtos da Subcategoria Selecionada */}
-          {displayedProducts.length > 0 ? (
+          {!activeSubcategory ? (
+            <div className="text-center py-16">
+              <p className="text-gray-500 text-xl">Selecione uma opção acima para ver os produtos</p>
+            </div>
+          ) : displayedProducts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
               {displayedProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
