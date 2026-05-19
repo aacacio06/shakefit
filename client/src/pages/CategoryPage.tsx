@@ -31,8 +31,11 @@ export default function CategoryPage() {
   const subcategories = Object.entries(groupedProducts);
   const subcategoryNames = subcategories.map(([name]) => name);
 
-  // Não seleciona automaticamente - aguarda seleção do usuário
-  const activeSubcategory = selectedSubcategory;
+  // Para Shakes Proteicos, aguarda seleção. Para outras categorias, mostra automaticamente
+  let activeSubcategory = selectedSubcategory;
+  if (decodedCategory !== "Shakes Proteicos" && subcategoryNames.length > 0 && !activeSubcategory) {
+    activeSubcategory = subcategoryNames[0];
+  }
   const displayedProducts = activeSubcategory ? (groupedProducts[activeSubcategory] || []) : [];
 
   return (
@@ -59,8 +62,8 @@ export default function CategoryPage() {
             </p>
           </div>
 
-          {/* Filtros de Subcategoria */}
-          {subcategoryNames.length > 1 && (
+          {/* Filtros de Subcategoria - Apenas para Shakes Proteicos */}
+          {decodedCategory === "Shakes Proteicos" && subcategoryNames.length > 1 && (
             <div className="mb-8 flex flex-wrap gap-3">
               {subcategoryNames.map((subcategory) => (
                 <button
@@ -79,7 +82,7 @@ export default function CategoryPage() {
           )}
 
           {/* Produtos da Subcategoria Selecionada */}
-          {!activeSubcategory ? (
+          {decodedCategory === "Shakes Proteicos" && !activeSubcategory ? (
             <div className="text-center py-16">
               <p className="text-gray-500 text-xl">Selecione uma opção acima para ver os produtos</p>
             </div>
