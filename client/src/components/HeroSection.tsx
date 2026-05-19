@@ -3,8 +3,8 @@ export default function HeroSection() {
     <section className="relative w-full bg-white flex items-center justify-center py-4 sm:py-6">
       <div className="relative flex items-center justify-center max-w-full">
         <img
-          src="/manus-storage/WhatsAppImage2026-05-18at21.43.03_b96df56a.jpeg"
-          alt="Hype Drink Turbo"
+          src="/manus-storage/WhatsAppImage2026-05-18at21.46.53_cc2bfee9.jpeg"
+          alt="Shake Fit"
           className="max-w-full h-auto"
         />
         <a
