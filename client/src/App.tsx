@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { CartProvider } from "./contexts/CartContext";
 import Home from "./pages/Home";
 import CategoryPage from "./pages/CategoryPage";
+import Cart from "./components/Cart";
 
 
 function Router() {
@@ -37,6 +38,7 @@ function App() {
           <TooltipProvider>
             <Toaster />
             <Router />
+            <Cart />
           </TooltipProvider>
         </CartProvider>
       </ThemeProvider>

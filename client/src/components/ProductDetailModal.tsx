@@ -1,5 +1,8 @@
 import { Product } from "@/data/products";
 import { X } from "lucide-react";
+import { useState } from "react";
+import { useCart } from "@/contexts/CartContext";
+import { toast } from "sonner";
 
 interface ProductDetailModalProps {
   product: Product | null;
@@ -7,7 +10,53 @@ interface ProductDetailModalProps {
 }
 
 export default function ProductDetailModal({ product, onClose }: ProductDetailModalProps) {
+  const { addItem } = useCart();
+  const [selectedMilk, setSelectedMilk] = useState<"normal" | "zero">("normal");
+  const [selectedSauces, setSelectedSauces] = useState<"one" | "two">("one");
+
   if (!product) return null;
+
+  const isWaffle = product.id === "waffle-simples" || product.id === "waffle-cobertura";
+
+  const calculatePrice = () => {
+    let basePrice = product.price;
+    let additionalPrice = 0;
+
+    if (isWaffle) {
+      // Leite zero lactose: +R$ 2,00
+      if (selectedMilk === "zero") {
+        additionalPrice += 2.00;
+      }
+
+      // Caldas
+      if (selectedSauces === "one") {
+        additionalPrice += 2.00;
+      } else if (selectedSauces === "two") {
+        additionalPrice += 4.00;
+      }
+    }
+
+    return basePrice + additionalPrice;
+  };
+
+  const handleAddToCart = () => {
+    const finalPrice = calculatePrice();
+    const customizations = isWaffle
+      ? {
+          milk: selectedMilk === "zero" ? "Zero Lactose" : "Normal",
+          sauces: selectedSauces === "one" ? "Uma Calda" : "Duas Caldas",
+        }
+      : undefined;
+
+    addItem({
+      product: { ...product, price: finalPrice },
+      quantity: 1,
+      customizations,
+    });
+
+    toast.success(`${product.name} adicionado ao carrinho!`);
+    onClose();
+  };
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
@@ -42,9 +91,75 @@ export default function ProductDetailModal({ product, onClose }: ProductDetailMo
             <p className="text-gray-700">{product.description}</p>
           </div>
 
+          {/* Opções de Customização para Waffle */}
+          {isWaffle && (
+            <div className="space-y-4 bg-gray-50 p-4 rounded-lg">
+              <h3 className="text-lg font-bold text-black">Personalize seu Waffle</h3>
+
+              {/* Opção de Leite */}
+              <div>
+                <p className="text-sm font-semibold text-gray-700 mb-2">Tipo de Leite</p>
+                <div className="space-y-2">
+                  <label className="flex items-center cursor-pointer">
+                    <input
+                      type="radio"
+                      name="milk"
+                      value="normal"
+                      checked={selectedMilk === "normal"}
+                      onChange={() => setSelectedMilk("normal")}
+                      className="mr-3"
+                    />
+                    <span className="text-gray-700">Normal <span className="text-green-600 font-semibold">+R$ 0,00</span></span>
+                  </label>
+                  <label className="flex items-center cursor-pointer">
+                    <input
+                      type="radio"
+                      name="milk"
+                      value="zero"
+                      checked={selectedMilk === "zero"}
+                      onChange={() => setSelectedMilk("zero")}
+                      className="mr-3"
+                    />
+                    <span className="text-gray-700">Zero Lactose <span className="text-orange-600 font-semibold">+R$ 2,00</span></span>
+                  </label>
+                </div>
+              </div>
+
+              {/* Opção de Caldas */}
+              <div>
+                <p className="text-sm font-semibold text-gray-700 mb-2">Número de Caldas</p>
+                <div className="space-y-2">
+                  <label className="flex items-center cursor-pointer">
+                    <input
+                      type="radio"
+                      name="sauces"
+                      value="one"
+                      checked={selectedSauces === "one"}
+                      onChange={() => setSelectedSauces("one")}
+                      className="mr-3"
+                    />
+                    <span className="text-gray-700">Uma Calda <span className="text-green-600 font-semibold">+R$ 2,00</span></span>
+                  </label>
+                  <label className="flex items-center cursor-pointer">
+                    <input
+                      type="radio"
+                      name="sauces"
+                      value="two"
+                      checked={selectedSauces === "two"}
+                      onChange={() => setSelectedSauces("two")}
+                      className="mr-3"
+                    />
+                    <span className="text-gray-700">Duas Caldas <span className="text-orange-600 font-semibold">+R$ 4,00</span></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Preço */}
           <div className="bg-gray-50 p-4 rounded-lg">
-            <p className="text-lg font-bold text-black">R$ {product.price.toFixed(2)}</p>
+            <p className="text-sm text-gray-600 mb-1">Preço Total</p>
+            <p className="text-2xl font-bold text-black">R$ {calculatePrice().toFixed(2)}</p>
           </div>
 
           {/* Tabela Nutricional */}
@@ -122,6 +237,14 @@ export default function ProductDetailModal({ product, onClose }: ProductDetailMo
               </div>
             </div>
           )}
+
+          {/* Botão Adicionar */}
+          <button
+            onClick={handleAddToCart}
+            className="w-full bg-black text-white py-3 rounded-lg font-bold hover:bg-gray-800 transition-colors"
+          >
+            Adicionar ao Carrinho - R$ {calculatePrice().toFixed(2)}
+          </button>
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ export interface CartItem {
   quantity: number;
   customizations?: {
     milk?: string;
+    sauces?: string;
     flavors?: string[];
     additionals?: string[];
   };
@@ -14,8 +15,8 @@ export interface CartItem {
 interface CartContextType {
   items: CartItem[];
   addItem: (item: CartItem) => void;
-  removeItem: (productId: string) => void;
-  updateQuantity: (productId: string, quantity: number) => void;
+  removeItem: (productId: string, customizations?: CartItem['customizations']) => void;
+  updateQuantity: (productId: string, quantity: number, customizations?: CartItem['customizations']) => void;
   clearCart: () => void;
   total: number;
 }
@@ -27,31 +28,57 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const addItem = (item: CartItem) => {
     setItems((prev) => {
-      const existing = prev.find((i) => i.product.id === item.product.id);
+      // Criar uma chave única para o item considerando customizações
+      const customizationKey = item.customizations
+        ? `${item.product.id}-${JSON.stringify(item.customizations)}`
+        : item.product.id;
+
+      // Procurar por um item existente com a mesma customização
+      const existing = prev.find((i) => {
+        const existingKey = i.customizations
+          ? `${i.product.id}-${JSON.stringify(i.customizations)}`
+          : i.product.id;
+        return existingKey === customizationKey;
+      });
+
       if (existing) {
-        return prev.map((i) =>
-          i.product.id === item.product.id
+        return prev.map((i) => {
+          const existingKey = i.customizations
+            ? `${i.product.id}-${JSON.stringify(i.customizations)}`
+            : i.product.id;
+          return existingKey === customizationKey
             ? { ...i, quantity: i.quantity + item.quantity }
-            : i
-        );
+            : i;
+        });
       }
       return [...prev, item];
     });
   };
 
-  const removeItem = (productId: string) => {
-    setItems((prev) => prev.filter((i) => i.product.id !== productId));
+  const removeItem = (productId: string, customizations?: CartItem['customizations']) => {
+    setItems((prev) =>
+      prev.filter((i) => {
+        if (i.product.id !== productId) return true;
+        // Se não há customizações especificadas, remover todos os itens com este ID
+        if (!customizations) return false;
+        // Se há customizações, remover apenas o item com as mesmas customizações
+        return JSON.stringify(i.customizations) !== JSON.stringify(customizations);
+      })
+    );
   };
 
-  const updateQuantity = (productId: string, quantity: number) => {
+  const updateQuantity = (productId: string, quantity: number, customizations?: CartItem['customizations']) => {
     if (quantity <= 0) {
-      removeItem(productId);
+      removeItem(productId, customizations);
       return;
     }
     setItems((prev) =>
-      prev.map((i) =>
-        i.product.id === productId ? { ...i, quantity } : i
-      )
+      prev.map((i) => {
+        if (i.product.id !== productId) return i;
+        // Se há customizações, verificar se correspondem
+        if (customizations && JSON.stringify(i.customizations) !== JSON.stringify(customizations)) return i;
+        return { ...i, quantity };
+      })
     );
   };
 
