@@ -939,6 +939,45 @@ export const products: Product[] = [
     sodium: "80mg",
     ingredients: ["Leite", "Proteína em pó", "Chocolate", "Gelatina"],
   },
+
+  // Combos
+  {
+    id: "combo-1",
+    name: "Omeleta ou Waffle ou Pizza + Chás",
+    description: "Escolha entre Omeleta, Waffle ou Pizza acompanhado de Chás (NRG, Herbal ou ambos).",
+    price: 45.00,
+    category: "Combos",
+    calories: "350",
+    protein: "18g",
+    carbs: "35g",
+    fat: "12g",
+    ingredients: ["Omeleta/Waffle/Pizza", "Chá"],
+  },
+  {
+    id: "combo-2",
+    name: "Omeleta ou Waffle ou Pizza + Chás + Fibras",
+    description: "Escolha entre Omeleta, Waffle ou Pizza acompanhado de Chás (NRG, Herbal ou ambos) + Fibras.",
+    price: 55.00,
+    category: "Combos",
+    calories: "380",
+    protein: "20g",
+    carbs: "40g",
+    fat: "13g",
+    fiber: "5g",
+    ingredients: ["Omeleta/Waffle/Pizza", "Chá", "Fibras"],
+  },
+  {
+    id: "combo-3",
+    name: "Omeleta ou Waffle ou Pizza + Hype Drink",
+    description: "Escolha entre Omeleta, Waffle ou Pizza acompanhado do Hype Drink Turbo.",
+    price: 55.00,
+    category: "Combos",
+    calories: "420",
+    protein: "22g",
+    carbs: "45g",
+    fat: "15g",
+    ingredients: ["Omeleta/Waffle/Pizza", "Hype Drink"],
+  },
 ];
 
 export const categories = [
