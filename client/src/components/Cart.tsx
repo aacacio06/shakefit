@@ -186,9 +186,13 @@ export default function Cart() {
                         </div>
 
                         {item.customizations && (
-                          <div className="text-xs text-gray-600 mb-3 space-y-1">
-                            {item.customizations.milk && <p>• Leite: {item.customizations.milk}</p>}
-                            {item.customizations.sauces && <p>• Caldas: {item.customizations.sauces}</p>}
+                          <div className="text-xs text-gray-600 mb-3 space-y-1 bg-white p-2 rounded border-l-2 border-yellow-400">
+                            {item.customizations.milk && (
+                              <p className="font-medium">🥛 Leite: <span className="font-semibold text-gray-800">{item.customizations.milk === 'normal' ? 'Desnatado' : 'Zero Lactose'}</span></p>
+                            )}
+                            {item.customizations.sauces && (
+                              <p className="font-medium">🍫 Caldas: <span className="font-semibold text-gray-800">{item.customizations.sauces === 'one' ? 'Uma Calda' : 'Duas Caldas'}</span></p>
+                            )}
                           </div>
                         )}
 
@@ -263,16 +267,31 @@ export default function Cart() {
                 </div>
 
                 <div className="flex-1 p-6 space-y-5">
-                  <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
-                    <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-2">Resumo</p>
-                    <div className="space-y-1">
+                    <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                    <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-2">Resumo do Pedido</p>
+                    <div className="space-y-3">
                       {items.map((item) => (
                         <div
                           key={`${item.product.id}-${JSON.stringify(item.customizations)}`}
-                          className="flex justify-between text-sm text-gray-700"
+                          className="bg-white p-3 rounded border border-gray-100"
                         >
-                          <span>{item.product.name} x{item.quantity}</span>
-                          <span className="font-semibold">R$ {(item.product.price * item.quantity).toFixed(2)}</span>
+                          <div className="flex justify-between items-start mb-2">
+                            <div>
+                              <p className="font-semibold text-gray-800">{item.product.name}</p>
+                              <p className="text-xs text-gray-500">Quantidade: {item.quantity}</p>
+                            </div>
+                            <span className="font-bold text-gray-800">R$ {(item.product.price * item.quantity).toFixed(2)}</span>
+                          </div>
+                          {item.customizations && (
+                            <div className="text-xs text-gray-600 space-y-1 bg-gray-50 p-2 rounded mt-2 border-l-2 border-yellow-400">
+                              {item.customizations.milk && (
+                                <p>🥛 Leite: <span className="font-semibold text-gray-700">{item.customizations.milk === 'normal' ? 'Desnatado' : 'Zero Lactose'}</span></p>
+                              )}
+                              {item.customizations.sauces && (
+                                <p>🍫 Caldas: <span className="font-semibold text-gray-700">{item.customizations.sauces === 'one' ? 'Uma Calda' : 'Duas Caldas'}</span></p>
+                              )}
+                            </div>
+                          )}
                         </div>
                       ))}
                     </div>
