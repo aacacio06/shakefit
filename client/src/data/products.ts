@@ -820,6 +820,16 @@ export const products: Product[] = [
     carbs: "8g",
     ingredients: ["Guaraná", "Cafeína", "Frutas", "Água com gás"],
   },
+  {
+    id: "hype-drink-litro",
+    name: "Hype Drink 1 Litro",
+    description: "Bebida energética com poder total. Tamanho: 1 litro.",
+    price: 35.00,
+    category: "Bebidas Funcionais",
+    calories: "35",
+    carbs: "8g",
+    ingredients: ["Guaraná", "Cafeína", "Frutas", "Água com gás"],
+  },
 
   // Salgados Proteicos
   {
