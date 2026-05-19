@@ -17,22 +17,25 @@ export default function ProductDetailModal({ product, onClose }: ProductDetailMo
   if (!product) return null;
 
   const isWaffle = product.id === "waffle-simples" || product.id === "waffle-cobertura";
+  const isShakeProteico = product.category === "Shakes Proteicos";
 
   const calculatePrice = () => {
     let basePrice = product.price;
     let additionalPrice = 0;
 
     if (isWaffle) {
+      // Leite zero lactose: +R$ 2,00 por calda
+      if (selectedMilk === "zero") {
+        if (selectedSauces === "one") {
+          additionalPrice += 2.00;
+        } else if (selectedSauces === "two") {
+          additionalPrice += 4.00;
+        }
+      }
+    } else if (isShakeProteico) {
       // Leite zero lactose: +R$ 2,00
       if (selectedMilk === "zero") {
         additionalPrice += 2.00;
-      }
-
-      // Caldas
-      if (selectedSauces === "one") {
-        additionalPrice += 2.00;
-      } else if (selectedSauces === "two") {
-        additionalPrice += 4.00;
       }
     }
 
@@ -41,12 +44,18 @@ export default function ProductDetailModal({ product, onClose }: ProductDetailMo
 
   const handleAddToCart = () => {
     const finalPrice = calculatePrice();
-    const customizations = isWaffle
-      ? {
-          milk: selectedMilk === "zero" ? "Zero Lactose" : "Normal",
-          sauces: selectedSauces === "one" ? "Uma Calda" : "Duas Caldas",
-        }
-      : undefined;
+    let customizations: any = undefined;
+
+    if (isWaffle) {
+      customizations = {
+        milk: selectedMilk === "zero" ? "Zero Lactose" : "Desnatado",
+        sauces: selectedSauces === "one" ? "Uma Calda" : "Duas Caldas",
+      };
+    } else if (isShakeProteico) {
+      customizations = {
+        milk: selectedMilk === "zero" ? "Zero Lactose" : "Desnatado",
+      };
+    }
 
     addItem({
       product: { ...product, price: finalPrice },
@@ -109,7 +118,7 @@ export default function ProductDetailModal({ product, onClose }: ProductDetailMo
                       onChange={() => setSelectedMilk("normal")}
                       className="mr-3"
                     />
-                    <span className="text-gray-700">Normal <span className="text-green-600 font-semibold">+R$ 0,00</span></span>
+                    <span className="text-gray-700">Desnatado <span className="text-green-600 font-semibold">+R$ 0,00</span></span>
                   </label>
                   <label className="flex items-center cursor-pointer">
                     <input
@@ -120,7 +129,7 @@ export default function ProductDetailModal({ product, onClose }: ProductDetailMo
                       onChange={() => setSelectedMilk("zero")}
                       className="mr-3"
                     />
-                    <span className="text-gray-700">Zero Lactose <span className="text-orange-600 font-semibold">+R$ 2,00</span></span>
+                    <span className="text-gray-700">Zero Lactose <span className="text-orange-600 font-semibold">+R$ 2,00 por calda</span></span>
                   </label>
                 </div>
               </div>
@@ -138,7 +147,7 @@ export default function ProductDetailModal({ product, onClose }: ProductDetailMo
                       onChange={() => setSelectedSauces("one")}
                       className="mr-3"
                     />
-                    <span className="text-gray-700">Uma Calda <span className="text-green-600 font-semibold">+R$ 2,00</span></span>
+                    <span className="text-gray-700">Uma Calda <span className="text-green-600 font-semibold">+R$ 0,00</span></span>
                   </label>
                   <label className="flex items-center cursor-pointer">
                     <input
@@ -149,7 +158,43 @@ export default function ProductDetailModal({ product, onClose }: ProductDetailMo
                       onChange={() => setSelectedSauces("two")}
                       className="mr-3"
                     />
-                    <span className="text-gray-700">Duas Caldas <span className="text-orange-600 font-semibold">+R$ 4,00</span></span>
+                    <span className="text-gray-700">Duas Caldas <span className="text-orange-600 font-semibold">+R$ 0,00</span></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Opções de Customização para Shakes Proteicos */}
+          {isShakeProteico && (
+            <div className="space-y-4 bg-gray-50 p-4 rounded-lg">
+              <h3 className="text-lg font-bold text-black">Escolha seu Leite</h3>
+
+              {/* Opção de Leite */}
+              <div>
+                <p className="text-sm font-semibold text-gray-700 mb-2">Tipo de Leite</p>
+                <div className="space-y-2">
+                  <label className="flex items-center cursor-pointer">
+                    <input
+                      type="radio"
+                      name="milk"
+                      value="normal"
+                      checked={selectedMilk === "normal"}
+                      onChange={() => setSelectedMilk("normal")}
+                      className="mr-3"
+                    />
+                    <span className="text-gray-700">Desnatado <span className="text-green-600 font-semibold">+R$ 0,00</span></span>
+                  </label>
+                  <label className="flex items-center cursor-pointer">
+                    <input
+                      type="radio"
+                      name="milk"
+                      value="zero"
+                      checked={selectedMilk === "zero"}
+                      onChange={() => setSelectedMilk("zero")}
+                      className="mr-3"
+                    />
+                    <span className="text-gray-700">Zero Lactose <span className="text-orange-600 font-semibold">+R$ 2,00</span></span>
                   </label>
                 </div>
               </div>

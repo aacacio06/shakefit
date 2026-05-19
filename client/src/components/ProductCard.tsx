@@ -13,12 +13,21 @@ export default function ProductCard({ product }: ProductCardProps) {
   const { addItem } = useCart();
   const [showDetail, setShowDetail] = useState(false);
 
-  const handleAddToCart = () => {
-    addItem({
-      product,
-      quantity: 1,
-    });
-    toast.success(`${product.name} adicionado ao carrinho!`);
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    // Verificar se é Waffle ou Shake Proteico
+    const isWaffle = product.id === "waffle-simples" || product.id === "waffle-cobertura";
+    const isShakeProteico = product.category === "Shakes Proteicos";
+    
+    if (isWaffle || isShakeProteico) {
+      setShowDetail(true);
+    } else {
+      addItem({
+        product,
+        quantity: 1,
+      });
+      toast.success(`${product.name} adicionado ao carrinho!`);
+    }
   }
 
   return (
@@ -61,6 +70,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <button
               onClick={handleAddToCart}
               className="bg-black text-white p-2 rounded-lg hover:bg-gray-800 transition-colors"
+              title="Clique para customizar"
             >
               <ShoppingCart size={18} />
             </button>
