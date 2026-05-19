@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
 import { useLocation } from "wouter";
-import { CheckCircle, Copy, Check, ArrowLeft, MessageCircle } from "lucide-react";
+import { CheckCircle, Copy, Check, ArrowLeft, MessageCircle, User, Phone } from "lucide-react";
 import { toast } from "sonner";
+import { getCustomerInfo } from "@/components/Cart";
 
 const PIX_KEY = "CHAVE_PIX_AQUI"; // Substituir pela chave Pix real
 const QR_CODE_IMAGE = "/manus-storage/WhatsAppImage2026-05-18at23.22.41_daf7039c.jpeg";
@@ -12,6 +13,7 @@ export default function PixPayment() {
   const { items, total, clearCart } = useCart();
   const [, setLocation] = useLocation();
   const [copied, setCopied] = useState(false);
+  const customer = getCustomerInfo();
 
   const handleCopyPix = async () => {
     try {
@@ -26,6 +28,10 @@ export default function PixPayment() {
 
   const buildWhatsAppMessage = () => {
     let message = "🛒 *Pedido Shake Fit Gourmet*\n\n";
+    if (customer) {
+      message += `👤 *Cliente:* ${customer.name}\n`;
+      message += `📱 *Telefone:* ${customer.phone}\n`;
+    }
     message += "━━━━━━━━━━━━━━━━━━━━\n";
 
     items.forEach((item) => {
@@ -75,11 +81,34 @@ export default function PixPayment() {
         >
           <ArrowLeft size={20} className="text-gray-700" />
         </button>
-        <h1 className="text-lg font-bold text-gray-900">Pagamento via Pix</h1>
+        <div>
+          <h1 className="text-lg font-bold text-gray-900">Pagamento via Pix</h1>
+          {customer && (
+            <p className="text-xs text-gray-500 mt-0.5">Olá, <span className="font-semibold text-gray-700">{customer.name}</span>!</p>
+          )}
+        </div>
       </div>
 
       <div className="flex-1 overflow-y-auto">
         <div className="max-w-md mx-auto px-4 py-6 space-y-6">
+
+          {/* Dados do Cliente */}
+          {customer && (
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <div className="px-5 py-4 flex items-center gap-3">
+                <div className="w-9 h-9 bg-yellow-100 rounded-full flex items-center justify-center shrink-0">
+                  <User size={16} className="text-yellow-600" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-bold text-gray-900 text-sm truncate">{customer.name}</p>
+                  <div className="flex items-center gap-1 mt-0.5">
+                    <Phone size={11} className="text-gray-400" />
+                    <p className="text-gray-500 text-xs">{customer.phone}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Resumo do Pedido */}
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
