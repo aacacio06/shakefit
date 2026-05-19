@@ -27,6 +27,10 @@ export default function Home() {
           image="/manus-storage/WhatsAppImage2026-05-16at15.25.01(1)_380b54d6.jpeg"
           imagePosition="center 35%"
           category="Bebidas Funcionais"
+          images={[
+            "/manus-storage/WhatsAppImage2026-05-16at15.25.01(1)_380b54d6.jpeg",
+            "/manus-storage/WhatsAppImage2026-05-16at15.25.03(8)_9c0c83bc.jpeg",
+          ]}
         />
         <CustomizeSection />
         <SlimDaySection />
