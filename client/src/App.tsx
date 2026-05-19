@@ -8,6 +8,7 @@ import { CartProvider } from "./contexts/CartContext";
 import Home from "./pages/Home";
 import CategoryPage from "./pages/CategoryPage";
 import Cart from "./components/Cart";
+import PixPayment from "./pages/PixPayment";
 
 
 function Router() {
@@ -15,6 +16,7 @@ function Router() {
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/cardapio/:category"} component={CategoryPage} />
+      <Route path={"/pagamento/pix"} component={PixPayment} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

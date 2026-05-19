@@ -2,10 +2,21 @@ import { useCart } from "@/contexts/CartContext";
 import { ShoppingCart, X, Minus, Plus } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useLocation } from "wouter";
 
 export default function Cart() {
   const { items, removeItem, updateQuantity, total, clearCart } = useCart();
   const [isOpen, setIsOpen] = useState(false);
+  const [, setLocation] = useLocation();
+
+  const handleCheckout = () => {
+    if (items.length === 0) {
+      toast.error("Carrinho vazio!");
+      return;
+    }
+    setIsOpen(false);
+    setLocation("/pagamento/pix");
+  };
 
   const handleWhatsApp = () => {
     if (items.length === 0) {
@@ -169,10 +180,10 @@ export default function Cart() {
                 {/* Botões */}
                 <div className="space-y-2">
                   <button
-                    onClick={handleWhatsApp}
-                    className="w-full bg-green-500 text-white py-3 rounded-lg font-bold hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
+                    onClick={handleCheckout}
+                    className="w-full bg-yellow-400 text-black py-3 rounded-lg font-bold hover:bg-yellow-500 transition-colors flex items-center justify-center gap-2"
                   >
-                    <span>Enviar para WhatsApp</span>
+                    <span>Finalizar Pedido</span>
                   </button>
                   <button
                     onClick={() => clearCart()}

@@ -1,6 +1,7 @@
 import { useCart } from "@/contexts/CartContext";
 import { X, Trash2 } from "lucide-react";
 import { useState } from "react";
+import { useLocation } from "wouter";
 
 interface CartModalProps {
   isOpen: boolean;
@@ -9,6 +10,12 @@ interface CartModalProps {
 
 export default function CartModal({ isOpen, onClose }: CartModalProps) {
   const { items, removeItem, updateQuantity, total, clearCart } = useCart();
+  const [, setLocation] = useLocation();
+
+  const handleCheckout = () => {
+    onClose();
+    setLocation("/pagamento/pix");
+  };
 
   if (!isOpen) return null;
 
@@ -107,7 +114,10 @@ export default function CartModal({ isOpen, onClose }: CartModalProps) {
                 R$ {total.toFixed(2)}
               </span>
             </div>
-            <button className="w-full bg-yellow-400 text-black font-bold py-3 rounded-lg hover:bg-yellow-500 transition-colors">
+            <button
+              onClick={handleCheckout}
+              className="w-full bg-yellow-400 text-black font-bold py-3 rounded-lg hover:bg-yellow-500 transition-colors"
+            >
               Finalizar Pedido
             </button>
             <button
