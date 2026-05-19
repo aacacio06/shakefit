@@ -5,6 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CartModal from "@/components/CartModal";
+import { HypeDrinkCarousel } from "@/components/HypeDrinkCarousel";
 import { useState, useMemo } from "react";
 
 export default function CategoryPage() {
@@ -78,12 +79,37 @@ export default function CategoryPage() {
             </div>
           )}
 
+          {/* Destaque do Hype Drink em Bebidas Funcionais */}
+          {decodedCategory === "Bebidas Funcionais" && (
+            <div className="mb-12">
+              {(() => {
+                const hypeDrink = displayedProducts.find(
+                  (p) => p.id === "hype-drink"
+                );
+                if (hypeDrink) {
+                  const hypeDrinkImages = [
+                    "/manus-storage/WhatsAppImage2026-05-16at15.25.03(8)_185020c1.jpeg",
+                    "/manus-storage/pasted_file_cOlFoP_image_e6a0d1a2.png",
+                  ];
+                  return (
+                    <HypeDrinkCarousel
+                      product={hypeDrink}
+                      images={hypeDrinkImages}
+                    />
+                  );
+                }
+              })()}
+            </div>
+          )}
+
           {/* Produtos da Subcategoria Selecionada */}
           {displayedProducts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-              {displayedProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
+              {displayedProducts
+                .filter((p) => !(decodedCategory === "Bebidas Funcionais" && p.id === "hype-drink"))
+                .map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
             </div>
           ) : (
             <div className="text-center py-12">

@@ -1,15 +1,12 @@
 import { useState, useEffect } from 'react';
+import { Carousel } from './Carousel';
 
 export default function HeroSection() {
-  const [showImage, setShowImage] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setShowImage((prev) => !prev);
-    }, 6000); // 3 segundos de imagem + 3 segundos de frase
-
-    return () => clearInterval(interval);
-  }, []);
+  const carouselImages = [
+    '/manus-storage/WhatsAppImage2026-05-18at21.46.53_cc2bfee9.jpeg',
+    '/manus-storage/WhatsAppImage2026-05-16at15.25.03(8)_185020c1.jpeg',
+    '/manus-storage/pasted_file_cOlFoP_image_e6a0d1a2.png',
+  ];
 
   return (
     <section className="relative w-full bg-white flex items-center justify-center py-4 sm:py-6 overflow-hidden">
@@ -45,32 +42,8 @@ export default function HeroSection() {
         }
       `}</style>
 
-      <div className="relative flex items-center justify-center max-w-full w-full">
-        {showImage ? (
-          <div className="slide-in relative w-full flex items-center justify-center">
-            <img
-              src="/manus-storage/WhatsAppImage2026-05-18at21.46.53_cc2bfee9.jpeg"
-              alt="Shake Fit"
-              className="max-w-full h-auto"
-            />
-            <a
-              href="#cardapio"
-              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition-colors font-semibold text-sm sm:text-base"
-            >
-              Ver Cardápio
-            </a>
-          </div>
-        ) : (
-          <div className="slide-in w-full flex items-center justify-center min-h-96 bg-gradient-to-br from-teal-50 to-orange-50">
-            <div className="text-center px-6 py-12">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-                <span className="text-teal-600">Energia</span>,{' '}
-                <span className="text-orange-400">aconchego</span> e{' '}
-                <span className="text-teal-600">alimentação saudável</span> em um só lugar.
-              </h2>
-            </div>
-          </div>
-        )}
+      <div className="relative w-full">
+        <Carousel images={carouselImages} interval={1500} autoPlay={true} />
       </div>
     </section>
   );
