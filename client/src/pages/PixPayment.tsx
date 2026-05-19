@@ -28,53 +28,73 @@ export default function PixPayment() {
   };
 
   const buildWhatsAppMessage = () => {
-    let message = "🛒 *Pedido Shake Fit Gourmet*\n\n";
+    let message = "🛒 *PEDIDO SHAKE FIT GOURMET*\n\n";
+    
+    // Seção de Cliente
     if (customer) {
-      message += `👤 *Cliente:* ${customer.name}\n`;
-      message += `📱 *Telefone:* ${customer.phone}\n`;
+      message += "┌─ *DADOS DO CLIENTE* ─┐\n";
+      message += `👤 ${customer.name}\n`;
+      message += `📱 ${customer.phone}\n`;
+      message += "└────────────────────┘\n\n";
       
-      // Informações de entrega
+      // Seção de Entrega
+      message += "┌─ *INFORMAÇÕES DE ENTREGA* ─┐\n";
       if (customer.delivery.type === "delivery") {
-        message += `\n📍 *Entrega em Casa*\n`;
-        message += `Rua: ${customer.delivery.address}\n`;
-        message += `Número: ${customer.delivery.number}\n`;
-        message += `Bairro: ${customer.delivery.neighborhood}\n`;
+        message += "🏠 *Entrega em Casa*\n";
+        message += `📍 ${customer.delivery.address}, ${customer.delivery.number}\n`;
+        message += `   ${customer.delivery.neighborhood}\n`;
         if (customer.delivery.complement) {
-          message += `Complemento: ${customer.delivery.complement}\n`;
+          message += `   ${customer.delivery.complement}\n`;
         }
       } else if (customer.delivery.type === "pickup") {
-        message += `\n🏪 *Retirada no Local*\n`;
+        message += "🏪 *Retirada no Local*\n";
+        message += "Busque seu pedido na loja\n";
       } else if (customer.delivery.type === "consume") {
-        message += `\n🍽️ *Consumo no Local*\n`;
+        message += "🍽️ *Consumo no Local*\n";
+        message += "Aproveite na nossa loja\n";
       }
+      message += "└────────────────────────────┘\n\n";
     }
-    message += "━━━━━━━━━━━━━━━━━━━━\n";
-
-    items.forEach((item) => {
-      message += `▸ *${item.product.name}* x${item.quantity}\n`;
+    
+    // Seção de Itens
+    message += "┌─ *ITENS DO PEDIDO* ─┐\n";
+    items.forEach((item, idx) => {
+      message += `${idx + 1}. *${item.product.name}* x${item.quantity}\n`;
       if (item.customizations?.milk) {
-        message += `   Leite: ${item.customizations.milk}\n`;
+        message += `   🥛 Leite: ${item.customizations.milk}\n`;
       }
       if (item.customizations?.sauces) {
-        message += `   Caldas: ${item.customizations.sauces}\n`;
+        message += `   🍫 Caldas: ${item.customizations.sauces}\n`;
       }
       if (item.customizations?.flavors && item.customizations.flavors.length > 0) {
-        message += `   Sabores: ${item.customizations.flavors.join(", ")}\n`;
+        message += `   🍓 Sabores: ${item.customizations.flavors.join(", ")}\n`;
       }
       if (item.customizations?.additionals && item.customizations.additionals.length > 0) {
-        message += `   Adicionais: ${item.customizations.additionals.join(", ")}\n`;
+        message += `   ➕ Adicionais: ${item.customizations.additionals.join(", ")}\n`;
       }
-      message += `   💰 R$ ${(item.product.price * item.quantity).toFixed(2)}\n\n`;
+      message += `   💰 R$ ${(item.product.price * item.quantity).toFixed(2)}\n`;
+      if (idx < items.length - 1) message += "\n";
     });
-
-    message += "━━━━━━━━━━━━━━━━━━━━\n";
+    message += "└────────────────────┘\n\n";
+    
+    // Seção de Valores
+    message += "┌─ *RESUMO DE VALORES* ─┐\n";
+    message += `Subtotal: R$ ${total.toFixed(2)}\n`;
     
     const deliveryFeeAmount = customer?.delivery.type === "delivery" ? DELIVERY_FEE : 0;
-    const finalTotal = total + deliveryFeeAmount;
+    if (deliveryFeeAmount > 0) {
+      message += `Taxa de Entrega: +R$ ${deliveryFeeAmount.toFixed(2)}\n`;
+    }
     
-    message += `💳 *Total: R$ ${finalTotal.toFixed(2)}*\n\n`;
+    const finalTotal = total + deliveryFeeAmount;
+    message += "─────────────────────\n";
+    message += `*TOTAL: R$ ${finalTotal.toFixed(2)}*\n`;
+    message += "└─────────────────────┘\n\n";
+    
+    // Confirmação
     message += "✅ *Pagamento via Pix realizado!*\n";
-    message += "Aguardando confirmação do pedido.";
+    message += "⏳ Seu pedido foi recebido e será preparado em breve.\n";
+    message += "\nObrigado por escolher Shake Fit! 🙏";
 
     return encodeURIComponent(message);
   };
