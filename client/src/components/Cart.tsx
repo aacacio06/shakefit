@@ -132,19 +132,6 @@ export default function Cart() {
 
   return (
     <>
-      {/* Botão Flutuante do Carrinho */}
-      <button
-        onClick={handleOpenCart}
-        className="fixed bottom-6 right-6 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition-all z-40 flex items-center justify-center"
-      >
-        <ShoppingCart size={24} />
-        {items.length > 0 && (
-          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
-            {items.length}
-          </span>
-        )}
-      </button>
-
       {/* Painel do Carrinho */}
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-end">
